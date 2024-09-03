@@ -1,0 +1,461 @@
+{
+	"facebook": {
+		"title": "Setup Facebook sales",
+		"settings": {
+			"connect_account": {
+				"title": "Connect your Facebook account",
+				"description": "Connect with Facebook to get your products into your own Facebook Shop."
+			},
+			"business_manager": {
+				"title": "Business manager",
+				"description": "Connect with Facebook manager you use to manage Facebook page, accounts ,and product catalog, You need to be an admin to be able to connect a business manager.",
+				"companies": [
+					{
+						"name": "ABC Inc.",
+						"date": "5/6/2021",
+						"id": "#123456",
+						"logo": "abc_logo.png"
+					},
+					{
+						"name": "XYZ Corp.",
+						"date": "5/6/2021",
+						"id": "#789012",
+						"logo": "xyz_logo.png"
+					}
+				]
+			},
+			"domain_verification": {
+				"title": "Domain verification",
+				"description": "Verify your Facebook domain, so they can define that you're the owner of it"
+			},
+			"facebook_page": {
+				"title": "Facebook page",
+				"description": "Connect with Facebook pages you want to sell or post ads. You need to be an admin to be able to connect a page.",
+				"companies": [
+					{
+						"name": "Bark",
+						"industry": "Pet supplies",
+						"likes": 400
+					},
+					{
+						"name": "P&G",
+						"industry": "Consumer goods",
+						"likes": 400
+					},
+					{
+						"name": "DELL",
+						"industry": "Marketing",
+						"likes": 400000
+					},
+					{
+						"name": "NASA",
+						"industry": "Design",
+						"likes": 5000000
+					}
+				]
+			},
+			"data_sharing": {
+				"title": "Data sharing (Facebook Pixel)",
+				"description": "Facebook collects data about your customers so they can use it to retarget them through your ads, which helps your business grow."
+			},
+			"commerce_account": {
+				"title": "Facebook commerce account",
+				"description": "Create a Facebook commerce account to start selling on Facebook, Instagram, or both once you have one. You'll be able to customize your Facebook shop"
+			},
+			"terms_and_conditions": {
+				"title": "Terms & conditions",
+				"description": "You need to accept Facebook terms of service"
+			}
+		}
+	},
+	"google": {
+		"title": "Setup Google sales",
+		"settings": {
+			"connect_account": {
+				"title": "Connect your Google account",
+				"description": "Connect with Google to get your products into your own Google merchant center."
+			},
+			"payment_method": {
+				"title": "Confirm some details",
+				"description": "Activate payment method so Google can make sure your store is trustworthy",
+				"method": [
+					{
+						"title": "Payment",
+						"description": "Add payment method for your store, so your customers can pay you online",
+						"buttonText": "Activate"
+					},
+					{
+						"title": "Pages",
+						"description": "Add a refund policy and terms of service",
+						"buttonText": "Add"
+					},
+					{
+						"title": "Contact",
+						"description": "Confirm you have 2 contact methods on your online store",
+						"buttonText": "Confirm"
+					}
+				]
+			}
+		}
+	},
+	"tikTok": {
+		"title": "Setup TikTok sales",
+		"mega_title": "You are about to add TikTok",
+		"settings": {
+			"settings_title": "TikTok will be able to:",
+			"tikTok_intro": [
+				{
+					"title": "View Dookan account data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "View products",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit marketing",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit store analytics",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit your online store",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit Other data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				}
+			],
+			"privacy_notice": {
+				"text": "To erase your customers' personal information from TikTok, Remove the app. After 48 hours, a request will be sent to TikTok to erase this data.",
+				"linkText": "Learn more about data Privacy",
+				"linkURL": "#"
+			},
+			"agreement_terms": {
+				"text": "By proceeding, you are agreeing to the",
+				"linkText": "Dookan Terms of Service",
+				"linkURL": "#"
+			},
+
+			"create_account": {
+				"title": "Connect your Business TikTok account",
+				"description": "Connect with TikTok to get your products into your own TikTok Shop."
+			},
+			"business_account": {
+				"title": "Business Account",
+				"description": "Dookan uses your TikTok for business account to access your TikTok Ads Manager Account.",
+				"partners": [
+					{
+						"name": "Partner1",
+						"id": "123",
+						"logo": "",
+						"is_connected": false
+					},
+					{
+						"id": "456",
+						"name": "Partner2",
+						"logo": "",
+						"is_connected": false
+					}
+				]
+			},
+			"data_sharing": {
+				"title": "Data sharing (TikTok Pixel)",
+				"description": "TikTok collect data about your customers so they can use it to retarget them through your ads, which help your business grow."
+			},
+			"payment_method": {
+				"title": "Payment",
+				"description": "A valid payment method is required to run ads on TikTok and use admcredits. Go to TikTok ads manager to set up your payments."
+			},
+			"target_location": {
+				"title": "Target Location",
+				"description": "Select the location where your customer are. TikTok willdeliver your ads to users in those target locations to help you maximize your budget.",
+				"location": ["Egypt", "Cairo"]
+			}
+		}
+	},
+	"snapchat": {
+		"title": "Setup Snapchat sales",
+		"mega_title": "You are about to add Snapchat",
+		"settings": {
+			"settings_title": "Snapchat will be able to:",
+			"snapchat_intro": [
+				{
+					"title": "View Dookan account data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "View products",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit marketing",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit store analytics",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit your online store",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit Other data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				}
+			],
+			"privacy_notice": {
+				"text": "To erase your customers' personal information from Snapchat, Remove the app. After 48 hours, a request will be sent to Snapchat to erase this data.",
+				"linkText": "Learn more about data Privacy",
+				"linkURL": "#"
+			},
+			"agreement_terms": {
+				"text": "By proceeding, you are agreeing to the",
+				"linkText": "Dookan Terms of Service",
+				"linkURL": "#"
+			},
+			"create_account": {
+				"title": "Connect your Business Snapchat account",
+				"description": "Connect with Snapchat to get your products into your own Snapchat Shop."
+			},
+			"business_account": {
+				"title": "Business Account",
+				"description": "Dookan uses your Snapchat for business account to access your Snapchat Ads Manager Account.",
+				"partners": [
+					{
+						"name": "Partner1",
+						"id": "123",
+						"logo": "",
+						"is_connected": false
+					},
+					{
+						"id": "456",
+						"name": "Partner2",
+						"logo": "",
+						"is_connected": false
+					}
+				]
+			},
+			"data_sharing": {
+				"title": "Data sharing (Snapchat Pixel)",
+				"description": "Snapchat collect data about your customers so they can use it to retarget them through your ads, which help your business grow."
+			}
+		}
+	},
+	"mailchimp": {
+		"title": "Setup Mailchimp sales",
+		"mega_title": "You are about to add Mailchimp",
+		"settings": {
+			"settings_title": "Mailchimp will be able to:",
+			"mailchimp_intro": [
+				{
+					"title": "View Dookan account data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "View products",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit marketing",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit store analytics",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit your online store",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit Other data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				}
+			],
+			"privacy_notice": {
+				"text": "To erase your customers' personal information from Mailchimp, Remove the app. After 48 hours, a request will be sent to Mailchimp to erase this data.",
+				"linkText": "Learn more about data Privacy",
+				"linkURL": "#"
+			},
+			"agreement_terms": {
+				"text": "By proceeding, you are agreeing to the",
+				"linkText": "Dookan Terms of Service",
+				"linkURL": "#"
+			},
+			"before_installing": {
+				"title": "Before Installing",
+				"note_1": {
+					"text_1": "Important: Before you begin, you must archive (not just pause) any automated",
+					"text_2": "to prevent redundant welcome messages from being sent to your Shopify customers. Other types of automations will be migrated automatically.",
+					"linkText": "welcome emails",
+					"linkURL": "#"
+				},
+				"note_2": {
+					"text_1": "Manager access or higher will be required to configure this integration. Learn more about Mailchimp",
+					"text_2": "",
+					"linkText": "user levels",
+					"linkURL": "#"
+				},
+				"note_3": {
+					"text_1": "Note that any existing abandoned cart email sequences will not migrate and need to be recreated after installation.",
+					"text_2": "",
+					"linkText": "",
+					"linkURL": "#"
+				},
+				"note_4": {
+					"text_1": "To save time, you can save your existing welcome and abandoned cart emails as a",
+					"text_2": "to speed up the recreation process.",
+					"linkText": "template",
+					"linkURL": "#"
+				},
+				"note_5": {
+					"text_1": "If you're syncing to an existing audience,",
+					"text_2": "of that audience, just to be safe.",
+					"linkText": "create a backup",
+					"linkURL": "#"
+				}
+			},
+			"create_account": {
+				"title": "Connect to your Mailchimp account",
+				"description": "or connect to your existing Mailchimp Account to authenticate and sync to Mailchimp. Learn more about installation."
+			},
+			"audience_select": {
+				"title": "Select an audience",
+				"description": "Choose an audience to sync your customers and their purchase data to Mailchimp. Please note, you can only connect one store with one Mailchimp audience.",
+				"store_list": [
+					{
+						"name": "Fan Al Taalouq",
+						"url": "FanAlTaalouq.dookan.net"
+					},
+					{
+						"name": "Rasma",
+						"url": "Rasma.dookan.net"
+					}
+				]
+			}
+		}
+	},
+	"sendGrid": {
+		"title": "Setup Sendgrid sales",
+		"mega_title": "You are about to add Sendgrid",
+		"settings": {
+			"settings_title": "Sendgrid will be able to:",
+			"sendgrid_intro": [
+				{
+					"title": "View Dookan account data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "View products",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit marketing",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit store analytics",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit your online store",
+					"linkURL": "#",
+					"linkText": "View Details"
+				},
+				{
+					"title": "Edit Other data",
+					"linkURL": "#",
+					"linkText": "View Details"
+				}
+			],
+			"privacy_notice": {
+				"text": "To erase your customers' personal information from Sendgrid, Remove the app. After 48 hours, a request will be sent to Sendgrid to erase this data.",
+				"linkText": "Learn more about data Privacy",
+				"linkURL": "#"
+			},
+			"agreement_terms": {
+				"text": "By proceeding, you are agreeing to the",
+				"linkText": "Dookan Terms of Service",
+				"linkURL": "#"
+			},
+			"before_installing": {
+				"title": "Before Installing",
+				"note_1": {
+					"text_1": "Important: Before you begin, you must archive (not just pause) any automated",
+					"text_2": "to prevent redundant welcome messages from being sent to your Shopify customers. Other types of automations will be migrated automatically.",
+					"linkText": "welcome emails",
+					"linkURL": "#"
+				},
+				"note_2": {
+					"text_1": "Manager access or higher will be required to configure this integration. Learn more about Sendgrid's",
+					"text_2": "",
+					"linkText": "user levels",
+					"linkURL": "#"
+				},
+				"note_3": {
+					"text_1": "Note that any existing abandoned cart email sequences will not migrate and need to be recreated after installation.",
+					"text_2": "",
+					"linkText": "",
+					"linkURL": "#"
+				},
+				"note_4": {
+					"text_1": "To save time, you can save your existing welcome and abandoned cart emails as a",
+					"text_2": "to speed up the recreation process.",
+					"linkText": "template",
+					"linkURL": "#"
+				},
+				"note_5": {
+					"text_1": "If you're syncing to an existing audience,",
+					"text_2": "of that audience, just to be safe.",
+					"linkText": "create a backup",
+					"linkURL": "#"
+				}
+			},
+			"connect_API": {
+				"title": "Connect to your Sendgrid account",
+				"description": "or connect to your existing Sendgrid Account to authenticate and sync to Sendgrid. Learn more about installation."
+			},
+			"audience_select": {
+				"title": "Select an audience",
+				"description": "Choose an audience to sync your customers and their purchase data to Sendgrid. Please note, you can only connect one store with one Sendgrid audience.",
+				"store_list": [
+					{
+						"name": "Fan Al Taalouq",
+						"url": "FanAlTaalouq.dookan.net"
+					},
+					{
+						"name": "Rasma",
+						"url": "Rasma.dookan.net"
+					}
+				]
+			}
+		}
+	}
+}

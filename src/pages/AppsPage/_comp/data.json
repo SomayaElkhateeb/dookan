@@ -1,0 +1,359 @@
+{
+	"apps": {
+		"google": {
+			"name": "google",
+			"image": "social/google.svg",
+			"description": "Google is a multinational technology company that specializes in Internet-related services and products.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Search Anything, Anytime",
+					"description": "Access the world's information at your fingertips with Google Search."
+				},
+				{
+					"title": "Stay Organized",
+					"description": "Keep track of your tasks, events, and appointments with Google Calendar."
+				},
+				{
+					"title": "Collaborate Effortlessly",
+					"description": "Work together with colleagues in real-time with Google Docs, Sheets, and Slides."
+				}
+			],
+			"posters": {
+				"poster_1": "posters/google_1.jpeg",
+				"poster_2": "posters/google_2.jpeg",
+				"poster_3": "posters/google_3.jpeg",
+				"poster_4": "posters/google_4.jpeg"
+			},
+			"backgroundColor": ["#4285F4", "#DB4437"],
+			"status": "installed",
+			"mostPopular": true
+		},
+		"gmail": {
+			"name": "gmail",
+			"image": "social/gmail.svg",
+			"description": "Gmail is a free email service developed by Google.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Send and Receive Emails",
+					"description": "Effortlessly send and receive emails from anywhere in the world with Gmail."
+				},
+				{
+					"title": "Organize Your Inbox",
+					"description": "Categorize and filter emails to keep your inbox organized and clutter-free."
+				},
+				{
+					"title": "Stay Connected",
+					"description": "Sync your emails across devices to stay connected on the go."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#D44638", "#FFFFFF"],
+			"posters": {
+				"poster_1": "posters/email_1.jpeg",
+				"poster_2": "posters/email_2.jpeg",
+				"poster_3": "posters/email_3.jpeg",
+				"poster_4": "posters/email_4.jpeg"
+			},
+			"mostPopular": false
+		},
+		"telegram": {
+			"name": "telegram",
+			"image": "social/telegram.svg",
+			"description": "Telegram is a cloud-based instant messaging and voice over IP service.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Private and Secure Messaging",
+					"description": "Communicate with friends and family securely with end-to-end encryption."
+				},
+				{
+					"title": "Share Media Files",
+					"description": "Easily share photos, videos, and documents with your contacts."
+				},
+				{
+					"title": "Join Communities",
+					"description": "Join groups and channels to connect with like-minded individuals and communities."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#0088CC", "#FFFFFF"],
+			"posters": {
+				"poster_1": "posters/telegram_1.jpeg",
+				"poster_2": "posters/telegram_2.jpeg",
+				"poster_3": "posters/telegram_3.jpeg",
+				"poster_4": "posters/telegram_4.jpeg"
+			},
+			"mostPopular": false
+		},
+		"whatsapp": {
+			"name": "whatsApp",
+			"image": "social/whatsapp.svg",
+			"description": "WhatsApp is a messaging app for smartphones that allows users to send and receive text messages, voice messages, and multimedia files.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Instant Messaging",
+					"description": "Send text messages, voice messages, and multimedia files instantly to friends and family."
+				},
+				{
+					"title": "Voice and Video Calls",
+					"description": "Make voice and video calls to contacts anywhere in the world for free."
+				},
+				{
+					"title": "Group Chats",
+					"description": "Create group chats with up to 256 participants to stay connected with multiple contacts."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#25D366", "#FFFFFF"],
+			"posters": {
+				"poster_1": "posters/whatsapp_1.jpeg",
+				"poster_2": "posters/whatsapp_2.jpeg",
+				"poster_3": "posters/whatsapp_3.jpeg",
+				"poster_4": "posters/whatsapp_4.jpeg"
+			},
+			"mostPopular": true
+		},
+		"tiktok": {
+			"name": "tikTok",
+			"image": "social/tiktok.svg",
+			"description": "TikTok is a social media platform for creating, sharing, and discovering short music videos.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Create Videos Quickly & Easily",
+					"description": "With our Video Generator tool, you can create high quality videos in minutes. No video production expertise is required."
+				},
+				{
+					"title": "Track Performance with Pixel",
+					"description": "Install the TikTok tracking pixel with the click of a button. it's so simple, no more manual installation or relying on a developer."
+				},
+				{
+					"title": "Boost Online Sales",
+					"description": "Grow online sales by promoting your products to the audiences that are most interested in them."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#00F2EA", "#FF004F"],
+			"posters": {
+				"poster_1": "posters/tiktok_1.jpeg",
+				"poster_2": "posters/tiktok_2.jpeg",
+				"poster_3": "posters/tiktok_3.jpeg",
+				"poster_4": "posters/tiktok_4.jpeg"
+			},
+			"mostPopular": "false"
+		},
+		"twitter": {
+			"name": "twitter",
+			"image": "social/twitter-X.svg",
+			"description": "Twitter is a social media platform for sharing news, thoughts, and ideas with a global audience.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Promoted Tweets",
+					"description": "Boost your visibility with Promoted Tweets that appear in users' timelines."
+				},
+				{
+					"title": "Campaign Targeting",
+					"description": "Target specific demographics, interests, and keywords to reach your audience."
+				},
+				{
+					"title": "Performance Tracking",
+					"description": "Track the performance of your ad campaigns with real-time analytics."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#1DA1F2", "#FFFFFF"],
+			"posters": {
+				"poster_1": "posters/twitter_1.jpeg",
+				"poster_2": "posters/twitter_2.jpeg",
+				"poster_3": "posters/twitter_3.jpeg",
+				"poster_4": "posters/twitter_4.jpeg"
+			},
+			"mostPopular": false
+		},
+		"facebook": {
+			"name": "facebook",
+			"image": "social/facebook.svg",
+			"description": "Facebook is a social media platform for connecting with friends, family, and communities.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Ad Campaigns",
+					"description": "Launch targeted ad campaigns to reach your audience on Facebook and Instagram."
+				},
+				{
+					"title": "Audience Targeting",
+					"description": "Target specific demographics, interests, and behaviors to reach the right audience."
+				},
+				{
+					"title": "Performance Analytics",
+					"description": "Track ad performance and optimize campaigns with detailed analytics and insights."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#0D53FC", "#55C397"],
+			"posters": {
+				"poster_1": "posters/facebook_1.jpeg",
+				"poster_2": "posters/facebook_2.jpeg",
+				"poster_3": "posters/facebook_3.jpeg",
+				"poster_4": "posters/facebook_4.jpeg"
+			},
+			"mostPopular": true
+		},
+		"mailchimp": {
+			"name": "mailchimp",
+			"image": "social/mailchimp.svg",
+			"description": "Mailchimp is an all-in-one marketing platform for small businesses.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Email Campaigns",
+					"description": "Design and send beautiful email campaigns to your subscribers."
+				},
+				{
+					"title": "Audience Insights",
+					"description": "Gain valuable insights into your audience with advanced analytics and reporting."
+				},
+				{
+					"title": "Marketing Automation",
+					"description": "Automate your marketing campaigns to save time and increase efficiency."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#FFAB00", "#FFFFFF"],
+			"posters": {
+				"poster_1": "posters/mailchimp_1.jpeg",
+				"poster_2": "posters/mailchimp_2.jpeg",
+				"poster_3": "posters/mailchimp_3.jpeg"
+			},
+			"mostPopular": true
+		},
+		"snapchat": {
+			"name": "snapchat",
+			"image": "social/snapchat.svg",
+			"description": "Connect with mailchimp to get your very own Email marketting and Drive traffic and sales with email and marketing automation.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Drive sales with automations",
+					"description": "Generate more orders than email alone with automated welcome, abandoned cart, and re-engagement emails."
+				},
+				{
+					"title": "Leverage AI-powered insights",
+					"description": "Get real-time recommendations to boost engagement and drive sales - powered by data from 12 billion daily emails."
+				},
+				{
+					"title": "Start for free, grow for less",
+					"description": "Try our powerful slate of marketing and design tools for free to see how Mailchimp can supercharge your growth."
+				}
+			],
+			"status": "free",
+			"backgroundColor": ["#FFE01B", "#FF4C4C"],
+			"posters": {
+				"poster_1": "posters/snapchat_1.jpeg",
+				"poster_2": "posters/snapchat_2.jpeg",
+				"poster_3": "posters/snapchat_3.jpeg",
+				"poster_4": "posters/snapchat_4.jpeg"
+			},
+			"mostPopular": false
+		},
+		"sendgrid": {
+			"name": "sendGrid",
+			"image": "social/sendgrid.svg",
+			"description": "SendGrid is a cloud-based service for sending transactional and marketing emails.",
+			"videoUrl": "https://www.youtube.com/embed/pUb9EW770d0?si=JMDd8iQlC39CoyXa",
+			"features": [
+				{
+					"title": "Email Marketing",
+					"description": "Create and send marketing emails to your subscribers with ease."
+				},
+				{
+					"title": "Automation",
+					"description": "Automate your email campaigns based on user actions and behavior."
+				},
+				{
+					"title": "Analytics",
+					"description": "Track email engagement metrics and analyze campaign performance."
+				}
+			],
+			"status": "installed",
+			"backgroundColor": ["#3A79BF", "#FFFFFF"],
+			"posters": {
+				"poster_1": "posters/sendgrid_1.jpeg",
+				"poster_2": "posters/sendgrid_2.jpeg",
+				"poster_3": "posters/sendgrid_3.jpeg",
+				"poster_4": "posters/sendgrid_4.jpeg"
+			},
+			"mostPopular": false
+		}
+	},
+	"appsStore": [
+		{
+			"id": 1,
+			"name": "Facebook",
+			"description": "Connect with Facebook to get to millions of customers",
+			"imageUrl": "social/facebook.svg",
+			"status": "installed",
+			"url": "/apps/app_store/facebook"
+		},
+		{
+			"id": 2,
+			"name": "Google",
+			"description": "Connect with Google to get to millions of customers",
+			"imageUrl": "social/google.svg",
+			"status": "free",
+			"url": "/apps/app_store/google"
+		},
+		{
+			"id": 3,
+			"name": "Gmail",
+			"description": "Connect with Gmail to get to millions of customers",
+			"imageUrl": "social/gmail.svg",
+			"status": "installed",
+			"url": "/apps/app_store/gmail"
+		},
+		{
+			"id": 4,
+			"name": "TikTok",
+			"description": "Connect with TikTok to get to millions of customers",
+			"imageUrl": "social/tiktok.svg",
+			"status": "free",
+			"url": "/apps/app_store/tiktok"
+		},
+		{
+			"id": 5,
+			"name": "Snapchat",
+			"description": "Connect with Snapchat to get to millions of customers",
+			"imageUrl": "social/snapchat.svg",
+			"status": "installed",
+			"url": "/apps/app_store/snapchat"
+		},
+		{
+			"id": 6,
+			"name": "WhatsApp",
+			"description": "Connect with WhatsApp to get to millions of customers",
+			"imageUrl": "social/whatsapp.svg",
+			"status": "free",
+			"url": "/apps/app_store/whatsapp"
+		},
+		{
+			"id": 7,
+			"name": "Telegram",
+			"description": "Connect with Telegram to get to millions of customers",
+			"imageUrl": "social/telegram.svg",
+			"status": "installed",
+			"url": "/apps/app_store/telegram"
+		},
+		{
+			"id": 8,
+			"name": "Twitter",
+			"description": "Connect with Twitter to get to millions of customers",
+			"imageUrl": "social/twitter-X.svg",
+			"status": "free",
+			"url": "/apps/app_store/twitter"
+		}
+	]
+}

@@ -1,0 +1,404 @@
+{
+	"statsData": [
+		{
+			"percentage": "4.75",
+			"label": "Sessions",
+			"value": "1200",
+			"positive": false
+		},
+		{
+			"percentage": "4.75",
+			"label": "Time per session",
+			"value": "12",
+			"positive": false,
+			"extensions": "min"
+		},
+		{
+			"percentage": "4.75",
+			"label": "Orders",
+			"value": "252",
+			"positive": false
+		},
+		{
+			"percentage": "4.75",
+			"label": "Abandoned cart",
+			"value": "250",
+			"positive": false
+		},
+		{
+			"percentage": "4.75",
+			"label": "Sales",
+			"value": "120",
+			"positive": false,
+			"extensions": "sar"
+		},
+		{
+			"percentage": "4.75",
+			"label": "Expenses",
+			"value": "500",
+			"positive": false,
+			"extensions": "sar"
+		},
+		{
+			"percentage": "4.75",
+			"label": "netProfit",
+			"value": "120",
+			"positive": false,
+			"extensions": "sar"
+		}
+	],
+	"reportsProgressData": [
+		{ "label": "Visitors with product views", "count": 2, "ratio": 4.75, "positive": false },
+		{ "label": "Added to cart", "count": 7, "ratio": 3.25, "positive": true },
+		{ "label": "Started checkouts", "count": 2, "ratio": 3.7, "positive": false },
+		{ "label": "Placed orders", "count": 2, "ratio": 1.7, "positive": true },
+		{ "label": "Visitors", "count": 15, "ratio": 2, "positive": false },
+		{ "label": "Product views", "count": 20, "ratio": 3, "positive": true },
+		{ "label": "Orders received", "count": 2, "ratio": 3.7, "positive": false },
+		{ "label": "Revenue", "count": 1, "ratio": 1.2, "positive": true }
+	],
+	"latestOrders": [
+		{
+			"id": "1",
+			"imageUrl": "images/profile.png",
+			"firstName": "walied",
+			"lastName": "sayed",
+			"orderStatus": "Awaiting Payment",
+			"orderNumber": "#8965742",
+			"price": 50,
+			"currency": "SAR",
+			"date": "5/6/2021"
+		},
+		{
+			"id": "2",
+			"firstName": "Ahmed",
+			"lastName": "Rady",
+			"orderStatus": "Canceled",
+			"orderNumber": "#8965742",
+			"price": 50,
+			"currency": "SAR",
+			"date": "5/6/2021"
+		},
+		{
+			"id": "3",
+			"imageUrl": "images/profile.png",
+			"firstName": "Samy",
+			"lastName": "Eslam",
+			"orderStatus": "Paid",
+			"orderNumber": "#8965742",
+			"price": 50,
+			"currency": "SAR",
+			"date": "5/6/2021"
+		},
+		{
+			"id": "4",
+			"firstName": "Magdy",
+			"lastName": "Salem",
+			"orderStatus": "Paid",
+			"orderNumber": "#8965742",
+			"price": 50,
+			"currency": "SAR",
+			"date": "5/6/2021"
+		},
+		{
+			"id": "5",
+			"imageUrl": "images/profile.png",
+			"firstName": "walied",
+			"lastName": "sayed",
+			"orderStatus": "Canceled",
+			"orderNumber": "#8965742",
+			"price": 50,
+			"currency": "SAR",
+			"date": "5/6/2021"
+		}
+	],
+	"topSellingProducts": [
+		{
+			"name": "GoPro Hero 9",
+			"imageUrl": "images/Vector.svg",
+			"category": "Electronics",
+			"quantity": 25,
+			"price": 4500.0
+		},
+		{
+			"name": "DJI Mavic Pro 2",
+			"imageUrl": "images/Vector.svg",
+			"category": "Blankets",
+			"quantity": 50,
+			"price": 10000.0
+		},
+		{
+			"name": "Samsung Galaxy S21 Ultra",
+			"imageUrl": "images/Vector.svg",
+			"category": "Smartphones",
+			"quantity": 20,
+			"price": 7000.0
+		},
+		{
+			"name": "Sony PlayStation 5",
+			"imageUrl": "images/Vector.svg",
+			"category": "Gaming",
+			"quantity": 10,
+			"price": 3000.0
+		},
+		{
+			"name": "Apple MacBook Pro",
+			"imageUrl": "images/Vector.svg",
+			"category": "Laptops",
+			"quantity": 15,
+			"price": 12000.0
+		}
+	],
+	"topSearchProducts": [
+		{
+			"name": "DJI Mavic Pro 2",
+			"imageUrl": "images/Vector.svg",
+			"category": "Blankets",
+			"quantity": 50,
+			"price": 10000.0
+		},
+		{
+			"name": "GoPro Hero 9",
+			"imageUrl": "images/Vector.svg",
+			"category": "Electronics",
+			"quantity": 25,
+			"price": 4500.0
+		},
+		{
+			"name": "Sony PlayStation 5",
+			"imageUrl": "images/Vector.svg",
+			"category": "Gaming",
+			"quantity": 10,
+			"price": 3000.0
+		},
+		{
+			"name": "Apple MacBook Pro",
+			"imageUrl": "images/macbook-pro.jpg",
+			"category": "Laptops",
+			"quantity": 15,
+			"price": 12000.0
+		},
+		{
+			"name": "Samsung Galaxy S21 Ultra",
+			"imageUrl": "images/Vector.svg",
+			"category": "Smartphones",
+			"quantity": 20,
+			"price": 7000.0
+		}
+	],
+	"topReviewsProducts": [
+		{
+			"name": "Samsung Galaxy S21 Ultra",
+			"imageUrl": "images/Vector.svg",
+			"category": "Smartphones",
+			"quantity": 20,
+			"price": 7000.0
+		},
+		{
+			"name": "DJI Mavic Pro 2",
+			"imageUrl": "images/Vector.svg",
+			"category": "Blankets",
+			"quantity": 50,
+			"price": 10000.0
+		},
+		{
+			"name": "GoPro Hero 9",
+			"imageUrl": "images/Vector.svg",
+			"category": "Electronics",
+			"quantity": 25,
+			"price": 4500.0
+		},
+		{
+			"name": "Sony PlayStation 5",
+			"imageUrl": "images/Vector.svg",
+			"category": "Gaming",
+			"quantity": 10,
+			"price": 3000.0
+		},
+		{
+			"name": "Apple MacBook Pro",
+			"imageUrl": "images/Vector.svg",
+			"category": "Laptops",
+			"quantity": 15,
+			"price": 12000.0
+		}
+	],
+	"customersReviews": {
+		"averageRating": 4.3,
+		"totalReviews": 54,
+		"recentReviews": [
+			{
+				"firstName": "John",
+				"lastName": "Doe",
+				"date": "5/6/2021",
+				"rating": 4,
+				"review": "Great product, highly recommended!"
+			},
+			{
+				"firstName": "Jane",
+				"lastName": "Smith",
+				"date": "5/5/2021",
+				"rating": 3,
+				"review": "Good quality, but could be better."
+			},
+			{
+				"firstName": "Alice",
+				"lastName": "Johnson",
+				"date": "5/4/2021",
+				"rating": 5,
+				"review": "Excellent service and fast delivery!"
+			}
+		]
+	},
+	"ordersAnalyticsTable": [
+		{
+			"day": "24 Apr 2024",
+			"orders": 123,
+			"average_units_ordered": 2.5,
+			"average_order_value": "100.50",
+			"delivered": 110,
+			"returned_quantity": 13
+		},
+		{
+			"day": "25 Apr 2024",
+			"orders": 456,
+			"average_units_ordered": 3.1,
+			"average_order_value": "120.75",
+			"delivered": 420,
+			"returned_quantity": 36
+		},
+		{
+			"day": "26 Apr 2024",
+			"orders": 789,
+			"average_units_ordered": 4.2,
+			"average_order_value": "150.25",
+			"delivered": 750,
+			"returned_quantity": 39
+		},
+		{
+			"day": "27 Apr 2024",
+			"orders": 564,
+			"average_units_ordered": 3.8,
+			"average_order_value": "135.20",
+			"delivered": 600,
+			"returned_quantity": 24
+		},
+		{
+			"day": "28 Apr 2024",
+			"orders": 890,
+			"average_units_ordered": 4.5,
+			"average_order_value": "170.00",
+			"delivered": 850,
+			"returned_quantity": 40
+		}
+	],
+	"customersAnalyticsTable": [
+		{
+			"day": "24 Apr 2024",
+			"new_customers": 1200,
+			"purchasing_customers": "420 (12%)",
+			"customer_groups": "520"
+		},
+		{
+			"day": "25 Apr 2024",
+			"new_customers": 1350,
+			"purchasing_customers": "480 (14%)",
+			"customer_groups": "540"
+		},
+		{
+			"day": "26 Apr 2024",
+			"new_customers": 1180,
+			"purchasing_customers": "410 (11%)",
+			"customer_groups": "515"
+		},
+		{
+			"day": "27 Apr 2024",
+			"new_customers": 1225,
+			"purchasing_customers": "430 (12%)",
+			"customer_groups": "525"
+		},
+		{
+			"day": "28 Apr 2024",
+			"new_customers": 1300,
+			"purchasing_customers": "450 (13%)",
+			"customer_groups": "535"
+		},
+		{
+			"day": "29 Apr 2024",
+			"new_customers": 1285,
+			"purchasing_customers": "440 (12%)",
+			"customer_groups": "530"
+		}
+	],
+	"productsAnalyticsTable": [
+		{
+			"id": "1",
+			"product_name": "Canon EOS Rebel T7",
+			"category": "cameras",
+			"quantity": 150,
+			"price": 549.00,
+			"searches": 850,
+			"views": 750,
+			"quantity_sold": 300,
+			"returns": 50,
+			"imageUrl": "images/Vector.svg"
+		},
+		{
+			"id": "2",
+			"product_name": "Apple iPhone 13 Pro",
+			"category": "phones",
+			"quantity": 200,
+			"price": 999.00,
+			"searches": 1200,
+			"views": 1100,
+			"quantity_sold": 500,
+			"returns": 100,
+			"imageUrl": "images/Vector.svg"
+		},
+		{
+			"id": "3",
+			"product_name": "Samsung 65-Inch QLED TV",
+			"category": "televisions",
+			"quantity": 100,
+			"price": 1299.99,
+			"searches": 500,
+			"views": 600,
+			"quantity_sold": 200,
+			"returns": 50,
+			"imageUrl": "images/Vector.svg"
+		}
+	
+	],
+	"paltformIntegrations": [
+		{
+			"id": 1,
+			"imageUrl": "social/facebook.svg",
+			"platformName": "Facebook Pixel",
+			"description": "Facebook pixel lets you track your store visitors and their behavior to optimize your Facebook ads, so you can retarget them and track your ad results.",
+			"activated":false
+		
+		},
+		{
+			"id": 2,
+			"imageUrl": "social/google.svg",
+			"platformName": "Google Analytics",
+			"description": "Google Remarketing lets you follow up with people who have already visited your website, and deliver ad content.",
+			"activated":false
+		},
+		{
+			"id": 3,
+			"imageUrl": "social/snapchat.svg",
+			"platformName": "Snapchat Pixel",
+			"description": "Measure your Snapchat ads impact on the sales. Add a Snap Pixel to see how many snapchatters interact with your store after viewing your ads.",
+			"activated":false
+		},
+		{
+			"id": 4,
+			"imageUrl": "social/twitter-X.svg",
+			"platformName": "Twitter Pixel",
+			"description": "Measure your Snapchat ads impact on the sales. Add a Snap Pixel to see how many snapchatters interact with your store after viewing your ads.",
+			"activated":true
+		
+		}
+	]
+}

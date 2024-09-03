@@ -1,0 +1,88 @@
+{
+	"statsData": [
+		{
+			"percentage": "4.75",
+			"label": "Sessions",
+			"value": "1200",
+			"positive": false
+		},
+		{
+			"percentage": "4.75",
+			"label": "Time per session",
+			"value": "12",
+			"positive": false,
+			"extensions": "min"
+		},
+		{
+			"percentage": "4.75",
+			"label": "Orders",
+			"value": "252",
+			"positive": false
+		},
+		{
+			"percentage": "4.75",
+			"label": "Abandoned cart",
+			"value": "250",
+			"positive": false
+		},
+		{
+			"percentage": "4.75",
+			"label": "Sales",
+			"value": "120",
+			"positive": false,
+			"extensions": "sar"
+		},
+		{
+			"percentage": "4.75",
+			"label": "Expenses",
+			"value": "500",
+			"positive": false,
+			"extensions": "sar"
+		},
+		{
+			"percentage": "4.75",
+			"label": "netProfit",
+			"value": "120",
+			"positive": false,
+			"extensions": "sar"
+		}
+	],
+	"campaigns": [
+		{
+			"name": "Summer campaign",
+			"status": "running",
+			"sales": "1000.00",
+			"expenses": "7000.00",
+			"netProfit": "5000.00",
+			"activities": [
+				{
+					"name": "Facebook summer ad",
+					"status": "in review",
+					"sessions": 28,
+					"sales": "10000.00",
+					"expenses": "10000.00",
+					"netProfit": "10000.00"
+				},
+				{
+					"name": "Google AdWords campaign",
+					"status": "running",
+					"sessions": 35,
+					"sales": "15000.00",
+					"expenses": "8000.00",
+					"netProfit": "7000.00"
+				},
+				{
+					"name": "Instagram sponsored post",
+					"status": "refused",
+					"sessions": 20,
+					"sales": "12000.00",
+					"expenses": "10000.00",
+					"netProfit": "2000.00"
+				}
+			]
+		}
+		
+	]
+}
+
+
