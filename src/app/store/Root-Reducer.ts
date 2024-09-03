@@ -52,10 +52,6 @@ export const rootReducer = combineReducers({
 	cartRule:cartRule,
 	catalogRules:catalogRules,
 
-	// categories: categories,
-	// customers: customers,
-	// products: products,
-	// groups: groups,
 	// analytics page
 	productsAnalytics: productsAnalytics,
 	ordersAnalytics: ordersAnalytics,
