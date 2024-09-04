@@ -1,7 +1,5 @@
 import { useTranslation } from 'react-i18next';
-
 import { IoIosAddCircle } from 'react-icons/io';
-
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'src/app/components/optimized';
 import ActionsComp from 'src/app/components/optimized/Buttons/ActionsComp';
@@ -9,7 +7,6 @@ import AddButtonMobile from 'src/app/components/optimized/Buttons/AddButtonMobil
 import useSelectBox from 'src/app/components/optimized/Menu/useSelectBox';
 import { useOpenFilterDrawer } from 'src/app/utils/hooks/CustomHookOpenDrawer';
 import useResponsive from 'src/app/utils/hooks/useResponsive';
-
 import CustomersTable from 'src/pages/CustomersPage/tabs/AllCustomers/_comp/CustomersTable';
 import CustomersComponenet from 'src/pages/CustomersPage/_comp/ResponsiveSmallMedia/CustomersComponent';
 import { useAppDispatch } from 'src/app/store';
@@ -21,17 +18,15 @@ import {
 	getExportCustomers,
 	PostImportCustomers,
 } from 'src/app/store/slices/customersPage/AllCustomers/customersTableAsyncThunks';
-
 import { UseDeleteItem } from 'src/app/utils/hooks/CustomDelete';
 import ThreeDotsButton from 'src/app/components/optimized/Buttons/ThreedotsButton';
 import PopupDelete from 'src/app/components/optimized/Popups/PopupDelete';
 import ActionHandler from 'src/app/utils/ActionMethods';
-
 import PopupImportData, { FormSchema } from 'src/app/components/optimized/Popups/PopupImportData';
-
 import FilterOrdersComponent from 'src/pages/OrdersPage/FilterOrder/FilterOrdersComponent';
 import { Use_Hook_ForAllCustomersPage } from './_hook/_hookforAllCustomersPage';
 import toast from 'react-hot-toast';
+import CustomersFilters from './_comp/_customerFilter/CustomersFilters';
 
 //  componenet will be used in customers page
 export default function AllCustomers() {
@@ -48,13 +43,10 @@ export default function AllCustomers() {
 	const { sortMenus, ActionsMenus, settingMenus, CustomersArrangedData, allCustomersIds } =
 		Use_Hook_ForAllCustomersPage(selectedOption);
 
-	// //////////////////////////
-	// ////////////////////////////
+	
 	useEffect(() => {
 		dispatch(getAllCustomersTable());
 	}, [dispatch]);
-	// ///////////////////////////////
-	// ////////////////////////////
 
 	//  handel deleteItem
 	const {
@@ -198,7 +190,7 @@ export default function AllCustomers() {
 
 			{/* open filter drawer */}
 			{openDrawer && (
-				<FilterOrdersComponent openDrawer={openDrawer} HandelCloseDrawer={HandelCloseDrawer} />
+				<CustomersFilters openDrawer={openDrawer} HandelCloseDrawer={HandelCloseDrawer} />
 			)}
 			{/* openDeleteDialog */}
 			{openDeleteDialog && (

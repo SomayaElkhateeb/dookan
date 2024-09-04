@@ -40,13 +40,14 @@ export default function AddNewAddressCustomer({
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const { address_id } = UseGetIdParams();
-
+console.log("address_id", address_id)
 	// ////////////////
 	//  selectors
 	const { isLoadingAddOrUpdate, addreseCustomerInfo } = useAppSelector(
 		(state) => state.AddressesCustomer,
 	);
 	// ////////////////
+	console.log('addreseCustomerInfo', addreseCustomerInfo)
 	const handleSubmit = (values: AddAddressInterface) => {
 		const sendingData: AddAddressInterface = {
 			...values,

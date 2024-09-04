@@ -21,6 +21,7 @@ import { useEffect } from 'react';
 import QuickActions from 'src/app/components/optimized/UiKits/QuickActions';
 import { useNavigate } from 'react-router-dom';
 import { Path } from 'react-hook-form';
+import SelectFormField from 'src/app/components/ui/form/SelectFormField';
 
 export default function Add_payment_system_methods() {
 	//  hooks
@@ -54,6 +55,8 @@ export default function Add_payment_system_methods() {
 			enable: true,
 		},
 	];
+
+	const typeOptions = [{ label: t('Gateway'), value: 'gateway' }];
 
 	useEffect(() => {
 		formStore.setValue('status', formStore.watch('status') ? 1 : 0);
@@ -96,12 +99,14 @@ export default function Add_payment_system_methods() {
 									label={t('Description')}
 									render={(field) => <Textarea {...field} placeholder={''} />}
 								/>
-								<FormField
-									formStore={formStore}
+			
+								<SelectFormField
 									name='type'
+									formStore={formStore}
 									label={t('Type')}
-									render={(field) => <Input {...field} placeholder={''} />}
+									options={typeOptions}
 								/>
+
 								<FormField
 									formStore={formStore}
 									name='monthly_fees_title'

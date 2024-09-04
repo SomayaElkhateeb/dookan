@@ -9,8 +9,6 @@ const CustomersPage = () => {
 	//  hooks
 	const { t } = useTranslation();
 	return (
-		//  tabs section
-
 		<Tabs
 			body={
 				<>
@@ -23,7 +21,6 @@ const CustomersPage = () => {
 				</>
 			}
 		>
-			{/*  children */}
 			<Tab label={t('All Customers')} value='1' />
 			<Tab label={t('Customers Groups')} value='2' />
 		</Tabs>

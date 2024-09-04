@@ -34,7 +34,6 @@ export default function GeneralInfoCustomerGroupInfo({
 					label={t('Description')}
 					render={(field) => <Textarea {...field} placeholder={''} />}
 				/>
-
 				<div className='flex gap-[.2rem] items-end'>
 					<FormSwitchField<AddCustomerGroupPageSchemaValues>
 						formStore={formStore}
@@ -42,7 +41,7 @@ export default function GeneralInfoCustomerGroupInfo({
 						fieldLabel={t('Active?')}
 						enable
 					/>
-					<p className='text-title text-sm font-normal  '>
+					<p className='text-title text-sm font-normal'>
 						{formStore.watch('status') ? 'on' : 'off'}
 					</p>
 				</div>

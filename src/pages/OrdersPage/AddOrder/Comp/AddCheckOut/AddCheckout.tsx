@@ -6,9 +6,14 @@ import { Form } from 'src/app/components/ui/form';
 // import { Textarea } from 'src/app/components/ui/textarea';
 // import FormField from 'src/app/components/ui/form/field';
 import SelectFormField from 'src/app/components/ui/form/SelectFormField';
-import { useAppSelector } from 'src/app/store';
+import { useAppDispatch, useAppSelector } from 'src/app/store';
 import { OrderInterface } from 'src/app/interface/OrderInterface';
 import { useEffect } from 'react';
+import {
+	getShippingList,
+	getShippingMethods,
+} from 'src/app/store/slices/settingsPage/shipping/shippingAsyncThunks';
+import { getPaymentMethods } from 'src/app/store/slices/settingsPage/payment/paymentMethods/paymentMethodsAsyncThunks';
 
 const branches = [
 	{ value: 'completed', label: 'completed' },
@@ -23,7 +28,7 @@ export default function AddCheckout({
 	orderItem,
 	isLoadingAddOrUpdate,
 }: {
-	onFinish?: (e?:AddCheckOutFormValues) => void;
+	onFinish?: (e?: AddCheckOutFormValues) => void;
 	onBack?: () => void;
 	handleChckOutFormForm?: () => void;
 	id?: string;
@@ -31,11 +36,27 @@ export default function AddCheckout({
 	isLoadingAddOrUpdate: boolean;
 }) {
 	const { t } = useTranslation();
+	const dispatch = useAppDispatch();
 
 	const { formStore, onSubmit, formValues } = useAddCheckOutForm(onFinish, id);
 	const { merchantPaymentList } = useAppSelector((state) => state.merchantPaymentSettings);
+
+	const { shippingMethod } = useAppSelector((state) => state.shippingSettings);
 	const { shippingList } = useAppSelector((state) => state.shippingSettings);
 
+	useEffect(() => {
+		dispatch(getShippingMethods());
+		dispatch(getShippingList());
+	}, [dispatch]);
+
+	useEffect(() => {
+		dispatch(getPaymentMethods());
+	}, [dispatch]);
+
+	const { paymentList } = useAppSelector((state) => state.paymentMethods);
+	const paymentMethods = paymentList.map((item) => item.method);
+	const shippingMethods = shippingMethod.map((item) => item.method);
+	console.log('shippingMethods', shippingMethods);
 	useEffect(() => {
 		orderItem?.status && formStore.setValue('status', orderItem?.status);
 		orderItem?.payment_title === 'Cash On Delivery' &&
@@ -70,15 +91,10 @@ export default function AddCheckout({
 					formStore={formStore}
 					name='payment_method'
 					label={t('Payment methods')}
-					options={merchantPaymentList?.map((e) => e.payment_method.method)}
+					// options={merchantPaymentList?.map((e) => e.payment_method.method)}
+					options={paymentMethods}
 				/>
-				{/* <SelectFormField
-					name='status'
-					label={t('Order status')}
-					formStore={formStore}
-					options={branches}
-					placeholder={t('Select option')}
-				/> */}
+
 				<FormChoiceChips<AddCheckOutFormValues>
 					checkoutForm
 					formStore={formStore}
@@ -125,11 +141,12 @@ export default function AddCheckout({
 					formStore={formStore}
 					name='shipping_method'
 					label={t('Shipping method')}
-					options={[
-						shippingList.free.method,
-						shippingList.flatrate.method,
-						shippingList.mpdhl.method,
-					]}
+					options={shippingMethods}
+					// options={[
+					// 	shippingList.free.method,
+					// 	shippingList.flatrate.method,
+					// 	shippingList.mpdhl.method,
+					// ]}
 				/>
 				{/* {formValues.shipping_method === 'DHLRate' && (
 					<>

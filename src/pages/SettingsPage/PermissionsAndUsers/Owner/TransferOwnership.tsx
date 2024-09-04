@@ -9,21 +9,19 @@ import {
 } from 'src/app/components/optimized/UiKits/SubHeaderActionBtns';
 import { useAppDispatch, useAppSelector } from 'src/app/store';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export default function TransferOwnership() {
 	//  hooks
 	const { t } = useTranslation();
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	// redux
-	const dispatch = useAppDispatch();
+	// const dispatch = useAppDispatch();
 
 	// const { formStore, onSubmit } = useForm({
 	// 	schema: AddUserSchema,
 	// 	handleSubmit: (values: addOwnerInterface) => {
-	// 		console.log("njhb")
-
+	// 		console.log('');
 	// 	},
 	// 	defaultValues: newOwnerValue(),
 	// });
@@ -31,17 +29,17 @@ export default function TransferOwnership() {
 	return (
 		// <Form {...formStore}>
 		// 	<form onSubmit={onSubmit} className='flex-col-global gap-5 h-screen'>
-			<>
-				<SubHeader title={t('Transfer Ownership')}>
-					<SubHeaderDefaultBtns onSubmit={onSubmit} />
-				</SubHeader>
-				<div className='custom-grid-parent custom_container'>
-					<div className=' flex-col-global gap-5 grid-left'>
-						{/* <NewOwner formStore={formStore} /> */}
-						<SubHeaderMobileBtns onSubmit={onSubmit} />
-					</div>
+		<>
+			<SubHeader title={t('Transfer Ownership')}>
+				{/* <SubHeaderDefaultBtns onSubmit={onSubmit} /> */}
+			</SubHeader>
+			<div className='custom-grid-parent custom_container'>
+				<div className=' flex-col-global gap-5 grid-left'>
+					<NewOwner formStore={formStore} />
+					{/* <SubHeaderMobileBtns onSubmit={onSubmit} /> */}
 				</div>
-			</>
+			</div>
+		</>
 		// 	</form>
 		// </Form>
 	);

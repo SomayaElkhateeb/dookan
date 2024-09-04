@@ -13,11 +13,10 @@ export default function useCustomHookAddRoles() {
 			name: '',
 			description: '',
 			permission_type: '',
-			permissions: []
+			permissions: [],
 		};
 	};
 
-	// schema
 	const rolesSchema = {
 		name: z.string().min(1).max(15),
 		description: z.string().min(1).max(100),

@@ -19,8 +19,7 @@ import useResponsive from 'src/app/utils/hooks/useResponsive';
 import SearchInput from 'src/app/components/ui/form/SearchInput';
 
 const RolesPage = () => {
-
-	const { t } = useTranslation()
+	const { t } = useTranslation();
 	const { xs } = useResponsive();
 
 	// redux
@@ -28,7 +27,6 @@ const RolesPage = () => {
 	const { rolesList, isLoading } = useAppSelector((state) => state.rolesSettings);
 	const { selectedOption, handleSelect, setSelectedOption } = useSelectBox();
 	const [searchQuery, setSearchQuery] = useState('');
-
 
 	useEffect(() => {
 		dispatch(getRolesList());
@@ -50,8 +48,8 @@ const RolesPage = () => {
 		sortMenus?.map((e) => e.text).includes(selectedOption) ? selectedOption : '',
 	);
 	const filteredRoles = useMemo(() => {
-		return RolesArrangedData.filter(user =>
-			user.name.toLowerCase().includes(searchQuery.toLowerCase())
+		return RolesArrangedData.filter((user) =>
+			user.name.toLowerCase().includes(searchQuery.toLowerCase()),
 		);
 	}, [searchQuery, RolesArrangedData]);
 	const options = [
@@ -92,7 +90,6 @@ const RolesPage = () => {
 				break;
 			case 'edit':
 				setSelectedOption('');
-
 				break;
 		}
 	}, [selectedOption, custom_Id]);
@@ -105,7 +102,6 @@ const RolesPage = () => {
 					handleSelect={handleSelect}
 					sortMenus={sortMenus}
 					setSearchQuery={setSearchQuery}
-
 				/>
 				<hr />
 				{/* import table all roles */}
@@ -137,7 +133,7 @@ const RolesBtn = ({
 	selectedOption,
 	handleSelect,
 	sortMenus,
-	setSearchQuery
+	setSearchQuery,
 }: {
 	selectedOption: string;
 	handleSelect: (e: string) => void;
@@ -161,7 +157,4 @@ const RolesBtn = ({
 			</div>
 		</div>
 	);
-
 };
-
-

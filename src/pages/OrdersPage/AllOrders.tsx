@@ -31,12 +31,14 @@ export default function AllOrders() {
 	//  hooks
 	const { t } = useTranslation();
 	const [array, setArray] = useState<string[]>([]);
-	
+
 	const { xs } = useResponsive();
 	const { selectedOption, handleSelect, setSelectedOption } = useSelectBox();
 	//redux
 	const dispatch = useAppDispatch();
 	const { allOrders, isLoading } = useAppSelector((state) => state.allOrders);
+	console.log('allOrders', allOrders);
+
 	const { sortMenus, ActionsMenus, StatusMenus, OrdersArrangedData } =
 		Use_Hook_ForAllOrdersPage(selectedOption);
 
@@ -87,11 +89,8 @@ export default function AllOrders() {
 				});
 				setSelectedOption('');
 				break;
-
-			
 		}
 	}, [selectedOption, custom_Id]);
-
 
 	return (
 		<div className='custom_container pt-5'>
@@ -123,7 +122,6 @@ export default function AllOrders() {
 						/>
 					</AllOrdersTable>
 				)}
-
 				{xs && (
 					<div className='flex-col-global'>
 						<AllOrdersTableMobile orders={OrdersArrangedData} />
@@ -141,7 +139,6 @@ export default function AllOrders() {
 					onDelete={handelCancelOrder}
 				/>
 			)}
-			
 		</div>
 	);
 }

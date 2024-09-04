@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { Apps, Campaigns, Coupons } from '.';
 import Discounts from '../tabs/Discounts/Discounts';
+import CartRulePage from '../tabs/CartRule/CartRulePage';
+import CatalogRulePage from '../tabs/CatalogRule/CatalogRulePage';
 
 const MarketingTabs = () => {
 	//  hooks
@@ -15,6 +17,10 @@ const MarketingTabs = () => {
 			return <Coupons />;
 		case 'campaigns':
 			return <Campaigns />;
+		case 'cartRule':
+			return <CartRulePage />;
+		case 'catalogRule':
+			return <CatalogRulePage />;
 
 		default:
 			return <Apps />;

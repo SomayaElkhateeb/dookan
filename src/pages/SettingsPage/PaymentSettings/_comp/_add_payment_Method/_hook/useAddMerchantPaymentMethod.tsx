@@ -28,10 +28,10 @@ export default function useAddMerchantPaymentMethod() {
 
 	const AddMerchantPaymentMethodSchema = {
 		payment_method_id: stringZod,
-		account_number: z.number().optional(),
+		account_number: numberZod,
 		account_name: stringZod.optional().or(z.literal('')),
 		bank_name: stringZod.optional().or(z.literal('')),
-		iban: z.number().optional(),
+		iban: numberZod,
 		price_more_than: numberZod,
 		items_more_than: numberZod,
 		// apply_with: stringZod,

@@ -23,6 +23,7 @@ export default function Shipping() {
 	const dispatch = useAppDispatch();
 	const { shippingMethod, isLoading } = useAppSelector((state) => state.shippingSettings);
 	const { shippingList } = useAppSelector((state) => state.shippingSettings);
+	console.log('shippingMethod', shippingMethod);
 
 	useEffect(() => {
 		dispatch(getShippingMethods());

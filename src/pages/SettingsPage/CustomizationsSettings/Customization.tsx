@@ -11,7 +11,7 @@ import { EditIcon } from 'src/app/utils/icons';
 import { Input } from 'src/app/components/ui/input';
 import { Form } from 'src/app/components/ui/form';
 import { fileClassName } from '../GeneralSettings/_comp/GeneralSettingsMedia';
-import useCustomCustomizeForm, { customizationInterface } from '../Customizations/HookCustomization';
+import useCustomCustomizeForm, { customizationInterface } from './_hook/HookCustomization';
 
 export default function Customization() {
 	//  hooks

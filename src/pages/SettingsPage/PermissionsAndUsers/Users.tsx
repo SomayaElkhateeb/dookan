@@ -24,19 +24,23 @@ const Users = () => {
 		//  tabs section
 		<>
 			<SubHeader title={value === 1 ? t('Users & Permissions') : t('Roles')}>
-				{xs ? '' : <Button
-					variant='primary'
-					LeftIcon={IoMdAddCircle}
-					onClick={() => {
-						if (value === 1) {
-							navigate('addStuff');
-						} else {
-							setOpenDialog(true);
-						}
-					}}
-				>
-					{value === 1 ? t('add staff') : t('add Roles')}
-				</Button>}
+				{xs ? (
+					''
+				) : (
+					<Button
+						variant='primary'
+						LeftIcon={IoMdAddCircle}
+						onClick={() => {
+							if (value === 1) {
+								navigate('addStuff');
+							} else {
+								setOpenDialog(true);
+							}
+						}}
+					>
+						{value === 1 ? t('add staff') : t('add Roles')}
+					</Button>
+				)}
 
 				{xs && <div />}
 			</SubHeader>
@@ -60,13 +64,15 @@ const Users = () => {
 			{openDialog && <AddRole openDialog={openDialog} setOpenDialog={setOpenDialog} />}
 			{xs && (
 				<div className='flex-end pr-3'>
-					<AddButtonMobile onClick={() => {
-						if (value === 1) {
-							navigate('addStuff');
-						} else {
-							setOpenDialog(true);
-						}
-					}} />
+					<AddButtonMobile
+						onClick={() => {
+							if (value === 1) {
+								navigate('addStuff');
+							} else {
+								setOpenDialog(true);
+							}
+						}}
+					/>
 				</div>
 			)}
 		</>

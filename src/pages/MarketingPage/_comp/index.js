@@ -8,3 +8,4 @@ export { default as MarketingTabs } from './MarketingTabs';
 export { default as NewDiscount } from '../tabs/Discounts/NewDiscount/NewDiscount';
 export { default as PlatformSetup } from '../tabs/Apps/AppsSetup/PlatformSetup';
 export { default as NewCampaign } from '../tabs/Campaigns/NewCampaign/NewCampaign';
+export { default as CouponForm } from '../tabs/Coupons/NewCoupons/CouponForm';
