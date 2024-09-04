@@ -28,13 +28,14 @@ const Coupons = () => {
 	//  hooks
 	const { t } = useTranslation();
 	const { xs } = useResponsive();
-	// const dispatch = useAppDispatch();
-	// const { coupons, isLoading } = useAppSelector((state) => state.couponPage);
+	const dispatch = useAppDispatch();
+	useEffect(() => {
+		dispatch(getCoupons('38'));
+	}, [dispatch]);
 
-	// useEffect(() => {
-	// 	dispatch(getCoupons());
-	// }, [dispatch]);
+	const { coupons, isLoading } = useAppSelector((state) => state.couponPage);
 
+	console.log(coupons);
 	return (
 		<div className='custom_container '>
 			<div className='flex-col-global  '>

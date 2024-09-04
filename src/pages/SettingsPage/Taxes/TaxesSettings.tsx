@@ -20,24 +20,27 @@ const TaxesSettings = () => {
 	const [openDialog, setOpenDialog] = useState(false);
 	const { xs } = useResponsive();
 
-
 	return (
 		//  tabs section
 		<>
 			<SubHeader title={t('Taxes')}>
-				{xs ? '' : <Button
-					variant='primary'
-					LeftIcon={IoMdAddCircle}
-					onClick={() => {
-						if (value === 1) {
-							setOpenDialog(true);
-						} else {
-							navigate('addTaxRatePage');
-						}
-					}}
-				>
-					{value === 1 ? t('add tax categories') : t('add tax rate')}
-				</Button>}
+				{xs ? (
+					''
+				) : (
+					<Button
+						variant='primary'
+						LeftIcon={IoMdAddCircle}
+						onClick={() => {
+							if (value === 1) {
+								setOpenDialog(true);
+							} else {
+								navigate('addTaxRatePage');
+							}
+						}}
+					>
+						{value === 1 ? t('add tax categories') : t('add tax rate')}
+					</Button>
+				)}
 
 				{xs && <div />}
 			</SubHeader>
@@ -46,7 +49,7 @@ const TaxesSettings = () => {
 				body={
 					<>
 						<TabPanel value='1'>
-							<TaxCategories />
+							<TaxCategories setOpenDialog={() => setOpenDialog(true)} />
 						</TabPanel>
 						<TabPanel value='2'>
 							<TaxRates />
@@ -58,22 +61,25 @@ const TaxesSettings = () => {
 				<Tab onClick={() => setValue(1)} label={t('tax categories')} value='1' />
 				<Tab onClick={() => setValue(2)} label={t('tax rates')} value='2' />
 			</Tabs>
-			{openDialog && <AddTaxCategories openDialog={openDialog} setOpenDialog={setOpenDialog} />}
+			{openDialog && (
+				<AddTaxCategories openDialog={openDialog} setOpenDialog={() => setOpenDialog(false)} />
+			)}
 
 			{xs && (
 				<div className='flex-end pr-3'>
-					<AddButtonMobile onClick={() => {
-						if (value === 1) {
-							setOpenDialog(true);
-						} else {
-							navigate('addTaxRate');
-						}
-					}} />
+					<AddButtonMobile
+						onClick={() => {
+							if (value === 1) {
+								setOpenDialog(true);
+							} else {
+								navigate('addTaxRate');
+							}
+						}}
+					/>
 				</div>
 			)}
 		</>
-
-	)
-}
+	);
+};
 
 export default TaxesSettings;

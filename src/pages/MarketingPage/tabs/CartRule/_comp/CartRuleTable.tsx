@@ -68,4 +68,4 @@ const CartRuleTable = ({
     )
 }
 
-export default CartRuleTable
+export default CartRuleTable;

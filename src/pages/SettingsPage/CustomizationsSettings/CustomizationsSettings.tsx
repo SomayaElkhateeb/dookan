@@ -3,79 +3,53 @@ import TabPanel from '@mui/lab/TabPanel';
 import { Tab } from '@mui/material';
 import Tabs from 'src/app/components/optimized/Tabs/Tabs';
 import { Button, SubHeader } from 'src/app/components/optimized';
-import { Form } from 'src/app/components/ui/form';
 import CheckoutCustomizeForm from './_comp/CheckoutCustomizeForm';
 import NewsletterConsentForm from './_comp/NewsletterConsentForm';
 import OrderInvoiceCustomizeForm from './_comp/OrderInvoiceCustomizeForm';
 import ProductCustomizeForm from './_comp/ProductCustomizeForm';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import useResponsive from 'src/app/utils/hooks/useResponsive';
+import { useRef } from 'react';
+import { useAppSelector } from 'src/app/store';
+import AddButtonMobile from 'src/app/components/optimized/Buttons/AddButtonMobile';
 
 const CustomizationsSettings = () => {
-	// hooks
 	const { t } = useTranslation();
-	const [value, setValue] = useState(1);
+	const [_, setValue] = useState(1);
 	const { xs } = useResponsive();
+	const formRef = useRef<{ submit: () => void }>(null);
 
-	const [checkoutData, setCheckoutData] = useState({});
-	const [productData, setProductData] = useState({});
-	const [newsletterData, setNewsletterData] = useState({});
-	const [orderInvoiceData, setOrderInvoiceData] = useState({});
-
-	const handleCheckoutSubmit = useCallback((data) => {
-		setCheckoutData(data);
-	}, []);
-
-	const handleProductSubmit = useCallback((data) => {
-		setProductData(data);
-	}, []);
-
-	const handleNewsletterSubmit = useCallback((data) => {
-		setNewsletterData(data);
-	}, []);
-
-	const handleOrderInvoiceSubmit = useCallback((data) => {
-		setOrderInvoiceData(data);
-	}, []);
-
-	const handleAllFormsSubmit = () => {
-		const allData = {
-			checkout: checkoutData,
-			product: productData,
-			newsletter: newsletterData,
-			orderInvoice: orderInvoiceData,
-		};
-		console.log('allData', allData);
+	const handleFormSubmit = () => {
+		if (formRef.current) {
+			formRef.current.submit(); // Trigger the form submission
+		}
 	};
+	const { isLoadingAddOrUpdate } = useAppSelector((state) => state.configurations);
 
 	return (
-
-		<div>
+		<>
 			<SubHeader title={t('Customizations')}>
-				{!xs &&
-					<>
-						<Button variant='secondary'>{t("Discard")}</Button>
-						<Button variant='primary' onClick={handleAllFormsSubmit}>{t("Save Changes")}</Button>
-					</>
-				}
-
-				{xs && <div />}
+				{!xs && (
+					<Button variant='primary' onClick={handleFormSubmit} loading={isLoadingAddOrUpdate}>
+						{t('Save Changes')}
+					</Button>
+				)}
 			</SubHeader>
 
 			<Tabs
 				body={
 					<>
 						<TabPanel value='1'>
-							<CheckoutCustomizeForm onSubmit={handleCheckoutSubmit} />
+							<CheckoutCustomizeForm ref={formRef} />
 						</TabPanel>
 						<TabPanel value='2'>
-							<ProductCustomizeForm onSubmit={handleProductSubmit} />
+							<ProductCustomizeForm ref={formRef} />
 						</TabPanel>
 						<TabPanel value='3'>
-							<NewsletterConsentForm onSubmit={handleNewsletterSubmit} />
+							<NewsletterConsentForm ref={formRef} />
 						</TabPanel>
 						<TabPanel value='4'>
-							<OrderInvoiceCustomizeForm onSubmit={handleOrderInvoiceSubmit} />
+							<OrderInvoiceCustomizeForm ref={formRef} />
 						</TabPanel>
 					</>
 				}
@@ -85,8 +59,12 @@ const CustomizationsSettings = () => {
 				<Tab onClick={() => setValue(3)} label={t('double opt-in')} value='3' />
 				<Tab onClick={() => setValue(4)} label={t('order invoice')} value='4' />
 			</Tabs>
-		</div>
-
+			{xs && (
+				<div className='flex-end pr-3'>
+					<AddButtonMobile onClick={handleFormSubmit} />
+				</div>
+			)}
+		</>
 	);
 };
 

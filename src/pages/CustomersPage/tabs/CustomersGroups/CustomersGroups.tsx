@@ -51,6 +51,7 @@ export default function CustomersGroups() {
 	// Delete customer Group
 
 	const handelDeleteCustomerGroup = () => {
+		console.log(132)
 		dispatch(deleteCustomerGroupAction(custom_Id)).then((promiseResponse: any) => {
 			if ((promiseResponse.payload.code = 200)) {
 				handelCloseDeleteDialog();
@@ -120,7 +121,7 @@ export default function CustomersGroups() {
 							firstName={e.name}
 							customersCount={e.customers_count}
 							group
-							path='customers/addGroupCustomer'
+							path='admin/customers/addGroupCustomer'
 							email={e.description}
 						>
 							<ThreeDotsButton

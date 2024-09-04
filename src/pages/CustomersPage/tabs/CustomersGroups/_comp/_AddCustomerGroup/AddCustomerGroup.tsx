@@ -26,11 +26,9 @@ import { useEffect } from 'react';
 import { getAllCustomersTable } from 'src/app/store/slices/customersPage/AllCustomers/customersTableAsyncThunks';
 
 export default function AddCustomerGroup() {
-	//  hooks
 	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	//  selectors
 
 	const { isLoadingAddOrUpdate, customerGroupItem } = useAppSelector(
 		(state) => state.customersGroup,
@@ -38,7 +36,9 @@ export default function AddCustomerGroup() {
 	//  custom hook
 	const { id } = UseGetIdParams();
 	const { handelDefaultValue } = useCustomHookAddCustomerGroupForm();
+
 	const handleSubmit = (values: AddCustomerGroupPageSchemaValues) => {
+		console.log('AddCustomerGroup', values);
 		values.code = values.name;
 
 		values.customers = values.customers?.map((e) => e?.id);
@@ -56,12 +56,13 @@ export default function AddCustomerGroup() {
 					}
 			  });
 	};
+
 	const { formStore, onSubmit } = useForm({
 		schema: AddCustomerGroupPageSchema,
 		handleSubmit: handleSubmit,
 		defaultValues: handelDefaultValue(),
 	});
-	//  case of update customer group
+	// case of update customer group
 	useEffect(() => {
 		if (id) {
 			dispatch(getCustomerGroupInfo(id));

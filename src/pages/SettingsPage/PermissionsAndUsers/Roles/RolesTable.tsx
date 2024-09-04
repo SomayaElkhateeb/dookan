@@ -5,7 +5,6 @@ import BaseTable, {
 } from 'src/app/components/optimized/TableLayoutGlobal/base.table';
 import { Role } from 'src/app/interface/settingsInterface/rolesSettingsInterface';
 
-
 const RolesTable = ({
 	rolesList,
 	isLoading,
@@ -17,7 +16,6 @@ const RolesTable = ({
 	handelId: (e: string) => void;
 	children: React.ReactNode;
 }) => {
-
 	//  hooks
 	const { language } = useLanguage();
 	const { t } = useTranslation();
@@ -41,7 +39,7 @@ const RolesTable = ({
 					item: e,
 					elements: [
 						<GlobalTableCell>
-							<div className="flex items-center">
+							<div className='flex items-center'>
 								<p className='text-title text-sm'>{i + 1}</p>
 							</div>
 						</GlobalTableCell>,

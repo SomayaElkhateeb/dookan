@@ -11,48 +11,55 @@ export const getCoupons = createAsyncThunk('coupons/getCoupons', (payload: strin
 // get coupon Show
 export const getCouponShow = createAsyncThunk(
 	'couponShow/getCouponShow',
-	(payload: string) => PublicRequest.getData(`merchant/marketing/promotions/cart-rules/${payload}/coupons/${payload}`), 
+	(payload: { cartRuleID: string; couponID: string }) =>
+		PublicRequest.getData(
+			`merchant/marketing/promotions/cart-rules/${payload.cartRuleID}/coupons/${payload.couponID}`,
+		),
 );
 
-// create coupon 
+// create coupon
 export const postCoupon = createAsyncThunk(
-	"postCoupon/postCoupon",
-	(payload: { data: any, id: string }) =>
-		PublicRequest.postData(payload.data, `merchant/marketing/promotions/cart-rules/${payload.id}/coupons`)
+	'postCoupon/postCoupon',
+	(payload: { data: any; id: string }) =>
+		PublicRequest.postData(
+			payload.data,
+			`merchant/marketing/promotions/cart-rules/${payload.id}/coupons`,
+		)
 			.then((res: any) => {
 				if (res) {
 					toast.success(res?.message);
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 
-// create mass coupon 
+// create mass coupon
 export const postCouponMassDestroy = createAsyncThunk(
-	"couponMassDestroy/postCouponMassDestroy",
-	(payload: { data: any, id: string }) =>
-		PublicRequest.postData(payload.data, `merchant/marketing/promotions/cart-rules/${payload.id}/coupons/mass-destroy`)
+	'couponMassDestroy/postCouponMassDestroy',
+	(payload: { data: any; id: string }) =>
+		PublicRequest.postData(
+			payload.data,
+			`merchant/marketing/promotions/cart-rules/${payload.id}/coupons/mass-destroy`,
+		)
 			.then((res: any) => {
 				if (res) {
 					toast.success(res?.message);
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 
 // delete coupon
-export const deleteCoupon = createAsyncThunk(
-	'delete/deleteCoupon',
-	(payload: string) => PublicRequest.deleteData(`merchant/marketing/promotions/cart-rules/${payload}/coupons/${payload}`).then((res: any) => {
-		if (res) {
-			toast.success(res?.message);
-			return res;
-		}
-	})
-		.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+export const deleteCoupon = createAsyncThunk('delete/deleteCoupon', (payload: string) =>
+	PublicRequest.deleteData(`merchant/marketing/promotions/cart-rules/${payload}/coupons/${payload}`)
+		.then((res: any) => {
+			if (res) {
+				toast.success(res?.message);
+				return res;
+			}
+		})
+		.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
-
-
 

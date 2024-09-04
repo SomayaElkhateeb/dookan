@@ -35,7 +35,11 @@ const AddCustomerPage = ({ onClose }: { onClose?: () => void }) => {
 	const { id } = UseGetIdParams();
 	//  selectors
 	const { CustomerInfo, isLoadingAddOrUpdate } = useAppSelector((state) => state.allCustomer);
+	console.log("CustomerInfo", CustomerInfo);
+
+	
 	const handleSubmit = (values: AddCustomerPageSchemaValues) => {
+		console.log('values', values);
 		let customValues = {
 			first_name: values.first_name,
 			last_name: values.last_name,
