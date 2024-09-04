@@ -19,7 +19,7 @@ export default function VariationsManager(props) {
 	});
 
 	return (
-		<div className='flex flex-col gap-4'>
+		<div className='flex flex-col gap-4 bg-sky-300'>
 			<Accordion type='multiple' className='flex flex-col gap-4'>
 				{fields.map((option, index) => {
 					const key = option.forOptionValuesTempIds.join('|');

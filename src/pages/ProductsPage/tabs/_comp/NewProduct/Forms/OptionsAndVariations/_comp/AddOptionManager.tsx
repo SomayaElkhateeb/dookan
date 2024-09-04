@@ -1,249 +1,422 @@
-import { useEffect, useMemo, useState } from 'react';
+// import { useState } from 'react';
+// import { useTranslation } from 'react-i18next';
+// import { FaCirclePlus } from 'react-icons/fa6';
+// import { Button } from 'src/app/components/optimized';
+// import { useAppSelector } from 'src/app/store';
+// import { useFieldArray, useWatch } from 'react-hook-form';
+// import SpecificAutoCompleteInput from 'src/app/components/ui/SpecificAutoCompleteInput';
+// import SelectFormField from 'src/app/components/ui/form/SelectFormField';
+// import { GlobalDialog } from 'src/app/components/shared';
+// import { ValidFormStoreByValues } from 'src/utils/types';
+// import { RemoveIcon } from 'src/app/utils/icons';
+// import { Values } from '../types';
+// import FormOptionById from './FormOptionById';
+
+
+// interface Props<TFormStore> {
+// 	formStore: ValidFormStoreByValues<TFormStore, Values>;
+// 	label: string;
+// }
+
+// export default function AddOptionManager<TFormStore>({ formStore, label }: Props<TFormStore>) {
+// 	const [open, setOpen] = useState(false);
+// 	const [openFormById, setOpenFormById] = useState(false);
+// 	const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
+// 	const [newOptions, setNewOptions] = useState<any[]>([]);
+// 	const [selectedFieldIndex, setSelectedFieldIndex] = useState<number | null>(null);
+// 	const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+// 	const [selectedOptionName, setSelectedOptionName] = useState<string | null>(null);
+// 	const { t } = useTranslation();
+// 	const { attributes } = useAppSelector((state) => state.attributes);
+
+// 	const { fields, append, remove } = useFieldArray({
+// 		control: formStore.control,
+// 		name: 'variants',
+// 	});
+
+// 	const variants = useWatch({
+// 		control: formStore.control,
+// 		name: 'variants',
+// 	});
+
+// 	const handleAttributeValueComponent = (i: number) => {
+// 		const selectedCode = variants[i]?.code;
+// 		const attributeValue = attributes.find(
+// 			(e) => e?.code?.toString() === selectedCode?.toString()
+// 		);
+
+// 		const options =
+// 			attributeValue?.options?.map((e) => ({
+// 				id: e.id,
+// 				name: e.label,
+// 			})) || [];
+
+// 		return (
+// 			<SpecificAutoCompleteInput
+// 				array={options}
+// 				label={t('Option value')}
+// 				name={`variants[${i}].attributeValues`}
+// 				formStore={formStore}
+// 				onChange={(value) => {
+// 					setNewOptions(value);
+// 				}}
+// 			/>
+// 		);
+// 	};
+
+// 	const dialogStyle = {
+// 		width: { lg: '50%', md: '70%', xs: '90%' },
+// 		height: { md: '350px', xs: '350px' },
+// 	};
+
+// 	const handleOpenDialog = (index: number) => {
+// 		setSelectedFieldIndex(index);
+// 		setOpen(true);
+// 	};
+
+// 	const handleCloseDialog = () => {
+// 		setOpen(false);
+// 		setSelectedFieldIndex(null);
+// 	};
+
+// 	const handleAddOptions = () => {
+// 		setSelectedOptions((prevOptions) => [...prevOptions, ...newOptions]);
+
+// 		if (selectedOptions.length > 0 && newOptions.length > 0) {
+// 			const combinedOptions = [];
+
+// 			for (let selected of selectedOptions) {
+// 				for (let newOption of newOptions) {
+// 					combinedOptions.push({
+// 						combinedName: `${selected.name}-${newOption.name}`,
+// 						selected,
+// 						newOption,
+// 					});
+// 					console.log(`Combined Option: ${selected.name}-${newOption.name}`);
+// 				}
+// 			}
+
+// 			setSelectedOptions(combinedOptions);
+// 		}
+
+// 		setNewOptions([]);
+
+// 		if (selectedFieldIndex !== null) {
+// 			remove(selectedFieldIndex);
+// 		}
+
+// 		handleCloseDialog();
+// 	};
+
+// 	const handleRemoveOption = (event, index: number) => {
+// 		event.stopPropagation();
+// 		setSelectedOptions((prevOptions) =>
+// 			prevOptions.filter((_, i) => i !== index)
+// 		);
+// 	};
+
+// 	const handleOptionClick = (id: string, name: string) => {
+// 		console.log('Option ID:', id);
+// 		console.log('Option Name:', name);
+// 		setSelectedOptionId(id);
+// 		setSelectedOptionName(name);
+// 		setOpenFormById(true);
+// 	};
+
+
+// 	return (
+// 		<div className="flex flex-col gap-5">
+// 			<div className="mt-2">
+// 				<Button
+// 					variant="secondary"
+// 					LeftIcon={FaCirclePlus}
+// 					onClick={() => handleOpenDialog(fields.length)}
+// 				>
+// 					{t('add options')}
+// 				</Button>
+// 			</div>
+
+// 			{fields?.length > 0 &&
+// 				fields.map((item, i) => <div key={i}>{handleAttributeValueComponent(i)}</div>)}
+
+// 			{open && selectedFieldIndex !== null && (
+// 				<GlobalDialog openDialog={open} handleClose={handleCloseDialog} style={dialogStyle}>
+// 					<div className="flex-col-global gap-20">
+// 						<div className="flex-col-global gap-4">
+// 							<h2>{t('Add option to product')}</h2>
+// 							<SelectFormField
+// 								formStore={formStore}
+// 								name={`variants[${selectedFieldIndex}].code`}
+// 								placeholder={t('Select option')}
+// 								label={t('Option Name')}
+// 								AnotherName={`variants[${selectedFieldIndex}].attributeValues`}
+// 								options={
+// 									attributes?.length > 0
+// 										? attributes.map((e) => ({
+// 											value: e.code,
+// 											label: e.name,
+// 										}))
+// 										: []
+// 								}
+// 							/>
+// 							<div className="mt-2">{handleAttributeValueComponent(selectedFieldIndex)}</div>
+// 						</div>
+
+// 						<div className="flex justify-end">
+// 							<Button onClick={handleAddOptions}>{t('add')}</Button>
+// 						</div>
+// 					</div>
+// 				</GlobalDialog>
+// 			)}
+
+// 			<div className="flex flex-col gap-4">
+// 				{selectedOptions.length > 0 &&
+// 					selectedOptions.map((e, index) => {
+// 						const selectedId = e.selected?.id;
+// 						const newOptionId = e.newOption?.id;
+
+// 						const combinedId = selectedId && newOptionId ? `${selectedId}-${newOptionId}` : null;
+
+// 						return (
+// 							<div
+// 								key={index}
+// 								className="cardDetails-sharedClass py-3 px-5 cursor-pointer flex items-center justify-between"
+// 								onClick={() => {
+// 									if (e.combinedName === `${e.selected?.name}-${e.newOption?.name}` && combinedId) {
+// 										handleOptionClick(combinedId, e.combinedName);
+// 									} else {
+// 										console.log('ID not found for the selected option:', e);
+// 									}
+// 								}}
+// 							>
+// 								<p className="fill-title">{e.combinedName || e.name}</p>
+// 								<div onClick={(event) => handleRemoveOption(event, index)}>
+// 									<RemoveIcon className="fill-title cursor-pointer" />
+// 								</div>
+// 							</div>
+// 						);
+// 					})}
+// 			</div>
+
+// 			{/* open form by id */}
+// 			{openFormById && (
+// 				<FormOptionById
+// 					openFormById={openFormById}
+// 					handleClose={() => setOpenFormById(false)}
+// 					selectedOptionId={selectedOptionId}
+// 					selectedOptionName={selectedOptionName} />
+// 			)}
+// 		</div>
+// 	);
+// }
+
+
+
+// ///////////////////////////////////////////////////////
+
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaCirclePlus } from 'react-icons/fa6';
-import { Button, CheckBox } from 'src/app/components/optimized';
-import FormField from 'src/app/components/ui/form/field';
-
-import SelectFormField from 'src/app/components/ui/form/SelectFormField';
-import { useAppDispatch, useAppSelector } from 'src/app/store';
-
-import { Attribute, option } from 'src/app/interface/AttributeInterface';
-import { Values } from '../types';
-import { useFieldArray } from 'react-hook-form';
-import { ValidFormStoreByValues } from 'src/utils/types';
-import TabbedFormField from 'src/app/components/ui/form/tabbed-field';
+import { Button } from 'src/app/components/optimized';
+import { useAppSelector } from 'src/app/store';
+import { useFieldArray, useWatch } from 'react-hook-form';
 import SpecificAutoCompleteInput from 'src/app/components/ui/SpecificAutoCompleteInput';
-import { Textarea } from 'src/app/components/ui/textarea';
-import { Input } from 'src/app/components/ui/Input';
-import DropDownMenu from 'src/app/components/optimized/DropDownMenu';
-import { LiaTrashAlt } from 'react-icons/lia';
+import SelectFormField from 'src/app/components/ui/form/SelectFormField';
+import { GlobalDialog } from 'src/app/components/shared';
+import { ValidFormStoreByValues } from 'src/utils/types';
+import { RemoveIcon } from 'src/app/utils/icons';
+import { Values } from '../types';
+import FormOptionById from './FormOptionById';
+
 interface Props<TFormStore> {
 	formStore: ValidFormStoreByValues<TFormStore, Values>;
 	label: string;
 }
-export default function AddOptionManager<TFormStore>(props: Props<TFormStore>) {
-	const { t } = useTranslation();
 
+export default function AddOptionManager<TFormStore>({ formStore, label }: Props<TFormStore>) {
+	const [open, setOpen] = useState(false);
+	const [openFormById, setOpenFormById] = useState(false);
+	const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
+	const [newOptions, setNewOptions] = useState<any[]>([]);
+	const [selectedFieldIndex, setSelectedFieldIndex] = useState<number | null>(null);
+	const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+	const [selectedOptionName, setSelectedOptionName] = useState<string | null>(null);
+	const { t } = useTranslation();
 	const { attributes } = useAppSelector((state) => state.attributes);
-	const { inventory } = useAppSelector((state) => state.inventory);
 
 	const { fields, append, remove } = useFieldArray({
-		control: props.formStore.control,
+		control: formStore.control,
 		name: 'variants',
 	});
-	
 
-	const handelAttributeValueComponent = (i: number) => {
-		let attributeValue = attributes?.filter(
-			(e) => e?.code?.toString() === props.formStore.watch(`variants[${i}].code`)?.toString(),
+	console.log('fields', fields) // []
+	const variants = useWatch({
+		control: formStore.control,
+		name: 'variants',
+	});
+
+	const handleAttributeValueComponent = (i: number) => {
+		const selectedCode = variants[i]?.code;
+		const attributeValue = attributes.find((e) => e?.code?.toString() === selectedCode?.toString());
+
+		const options = attributeValue?.options?.map((e) => ({
+			id: e.id,
+			name: e.label,
+		})) || [];
+
+		return (
+			<SpecificAutoCompleteInput
+				array={options}
+				label={t('Option value')}
+				name={`variants[${i}].attributeValues`}
+				formStore={formStore}
+				onChange={(value) => {
+					setNewOptions(value);
+				}}
+			/>
 		);
-		switch (attributeValue[0]?.type) {
-			case 'select':
-				return (
-					<SelectFormField
-						formStore={props.formStore}
-						name={`variants[${i}].attributeValues`}
-						label={t('Attribute value')}
-						options={
-							attributeValue?.length > 0 && attributeValue[0]?.options?.length > 0
-								? attributeValue[0]?.options?.map((e: optionInterface) => {
-										return {
-											value: e.id,
-											label: e.label,
-										};
-								  })
-								: []
-						}
-						placeholder={t('Attribute value')}
-					/>
-				);
+	};
 
-			case 'boolean':
-				return (
-					<FormField
-						formStore={props.formStore}
-						name={`variants[${i}].attributeValues`}
-						render={(field) => (
-							<CheckBox
-								label={t('Attribute value')}
-								checked={props.formStore.watch(`variants[${i}].attributeValues`) === true}
-								handleOnChange={field.onChange}
-							/>
-						)}
-					/>
-				);
-			case 'text':
-				return (
-					<FormField
-						formStore={props.formStore}
-						name={`variants[${i}].attributeValues`}
-						label={t('Attribute value')}
-						render={(field) => <Input {...field} />}
-					/>
-				);
+	const dialogStyle = {
+		width: { lg: '50%', md: '70%', xs: '90%' },
+		height: { md: '350px', xs: '350px' },
+	};
+
+	const handleOpenDialog = (index: number) => {
+		setSelectedFieldIndex(index);
+		setOpen(true);
+	};
+
+	const handleCloseDialog = () => {
+		setOpen(false);
+		setSelectedFieldIndex(null);
+	};
+
+	const handleAddOptions = () => {
+		setSelectedOptions((prevOptions) => [...prevOptions, ...newOptions]);
+
+		if (selectedOptions.length > 0 && newOptions.length > 0) {
+			const combinedOptions = [];
+
+			for (let selected of selectedOptions) {
+				for (let newOption of newOptions) {
+					combinedOptions.push({
+						combinedName: `${selected.name}-${newOption.name}`,
+						selected,
+						newOption,
+					});
+					console.log(`Combined Option: ${selected.name}-${newOption.name}`);
+				}
+			}
+
+			setSelectedOptions(combinedOptions);
 		}
+
+		setNewOptions([]);
+
+		if (selectedFieldIndex !== null) {
+			remove(selectedFieldIndex);
+		}
+
+		handleCloseDialog();
+	};
+
+	const handleRemoveOption = (event, index: number) => {
+		event.stopPropagation();
+		setSelectedOptions((prevOptions) => prevOptions.filter((_, i) => i !== index));
+	};
+
+	const handleOptionClick = (id: string, name: string) => {
+		console.log('Option ID:', id);
+		console.log('Option Name:', name);
+		setSelectedOptionId(id); // Set the selected ID
+		setSelectedOptionName(name); // Set the selected name
+		setOpenFormById(true); // Open the form by ID
 	};
 
 	return (
-		<div className='flex-col-global'>
-			{fields?.length > 0 &&
-				fields?.map((item, i) => (
-					<div className='global-cards my-2'>
-						<DropDownMenu
-							addCompo={
-								<LiaTrashAlt
-									onClick={() => {
-										remove(i);
-									}}
-									className='iconClass text-[red]'
-								/>
-							}
-							variant
-							title={`${t('variant')} ${i + 1}`}
-						>
-							<div className='grid grid-cols-1 gap-4  '>
-								<div className='grid md:grid-cols-2 grid-cols-1 gap-4'>
-									<TabbedFormField
-										formStore={props.formStore}
-										keys={[
-											{ name: `variants[${i}].en.name`, label: 'En' },
-											{ name: `variants[${i}].ar.name`, label: 'عربي' },
-										]}
-										label={t('NAME')}
-										renderer={(field) => <Input {...field} />}
-									/>
-									<TabbedFormField
-										formStore={props.formStore}
-										keys={[
-											{ name: `variants[${i}].en.short_description`, label: 'En' },
-											{ name: `variants[${i}].ar.short_description`, label: 'عربي' },
-										]}
-										label={t('Short Description')}
-										renderer={(field) => <Input {...field} />}
-									/>
-								</div>
-								<TabbedFormField
-									formStore={props.formStore}
-									keys={[
-										{ name: `variants[${i}].en.description`, label: 'En' },
-										{ name: `variants[${i}].ar.description`, label: 'عربي' },
-									]}
-									label={t('Description')}
-									renderer={(field) => <Textarea {...field} />}
-								/>
-								<div className='grid md:grid-cols-2 grid-cols-1 gap-4'>
-									<FormField
-										label={t('Price')}
-										formStore={props.formStore}
-										name={`variants[${i}].price`}
-										render={(field) => <Input type='number' {...field} />}
-									/>
-									<FormField
-										label={t('weight')}
-										formStore={props.formStore}
-										name={`variants[${i}].weight`}
-										render={(field) => <Input type='number' {...field} />}
-									/>
-								</div>
-								<FormField
-									label={t('SKU Code')}
-									formStore={props.formStore}
-									name={`variants[${i}].sku`}
-									render={(field) => <Input {...field} />}
-								/>
-								<div className='grid md:grid-cols-2 grid-cols-1 gap-4'>
-									<FormField
-										label={t('quantity')}
-										formStore={props.formStore}
-										name={`variants[${i}].quantity`}
-										render={(field) => <Input type='number' {...field} />}
-									/>
-									<SpecificAutoCompleteInput<Values>
-										array={inventory?.map((e) => {
-											return {
-												id: e.id.toString(),
-												name: e.name,
-											};
-										})}
-										label={t('Inventory branches')}
-										name={`variants[${i}].inventories`}
-										formStore={props.formStore}
-									/>
-								</div>
-								<div className='grid md:grid-cols-2 grid-cols-1'>
-									<SelectFormField
-										formStore={props.formStore}
-										name={`variants[${i}].code`}
-										placeholder={t('Attribute Name')}
-										label={t('Attribute Name')}
-										AnotherName={`variants[${i}].attributeValues`}
-										options={
-											attributes?.length > 0
-												? attributes?.map((e) => {
-														return {
-															value: e.code,
-															label: e.name,
-														};
-												  })
-												: []
-										}
-									/>
-								</div>
-								<div className='mt-2'>{handelAttributeValueComponent(i)}</div>
-								<div className='mt-2'>
-									<FormField
-										formStore={props.formStore}
-										name={`variants[${i}].status`}
-										render={(field) => (
-											<CheckBox
-												label={t('Status')}
-												checked={
-													props.formStore.watch(`variants[${i}].status`) === 1 ? true : false
-												}
-												handleOnChange={(isChecked) => {
-													if (isChecked) {
-														props.formStore.setValue(`variants[${i}].status`, 1);
-													} else {
-														props.formStore.setValue(`variants[${i}].status`, 0);
-													}
-												}}
-											/>
-										)}
-									/>
-								</div>
-							</div>
-						</DropDownMenu>
-					</div>
-				))}
-
-			<div className='flex flex-row justify-start'>
+		<div className="flex flex-col gap-5">
+			<div className="mt-2">
 				<Button
-					variant='secondary'
-					textClassName='flex items-center justify-center gap-1.5 whitespace-nowrap bg-transparent border-title px-4 py-3 rounded-lg border'
-					className='px-0 border-0 rounded-none'
-					onClick={() =>
-						append({
-							sku: '',
-							en: {
-								name: '',
-								short_description: '',
-								description: '',
-							},
-							ar: {
-								name: '',
-								short_description: '',
-								description: '',
-							},
-							price: 0,
-							weight: 0,
-							status: 0,
-						})
-					}
+					variant="secondary"
+					LeftIcon={FaCirclePlus}
+					onClick={() => handleOpenDialog(fields.length)}
 				>
-					<FaCirclePlus className='size-5' />
-					{props.label}
+					{t('add options')}
 				</Button>
 			</div>
+
+			{fields?.length > 0 &&
+				fields.map((item, i) => <div key={i}>{handleAttributeValueComponent(i)}</div>)}
+
+			{open && selectedFieldIndex !== null && (
+				<GlobalDialog openDialog={open} handleClose={handleCloseDialog} style={dialogStyle}>
+					<div className="flex-col-global gap-20">
+						<div className="flex-col-global gap-4">
+							<h2>{t('Add option to product')}</h2>
+							<SelectFormField
+								formStore={formStore}
+								name={`variants[${selectedFieldIndex}].code`}
+								placeholder={t('Select option')}
+								label={t('Option Name')}
+								AnotherName={`variants[${selectedFieldIndex}].attributeValues`}
+								options={
+									attributes?.length > 0
+										? attributes.map((e) => ({
+											value: e.code,
+											label: e.name,
+										}))
+										: []
+								}
+							/>
+							<div className="mt-2">{handleAttributeValueComponent(selectedFieldIndex)}</div>
+						</div>
+
+						<div className="flex justify-end">
+							<Button onClick={handleAddOptions}>{t('add')}</Button>
+						</div>
+					</div>
+				</GlobalDialog>
+			)}
+
+			<div className="flex flex-col gap-4">
+				{selectedOptions.length > 0 &&
+					selectedOptions.map((e, index) => {
+						const selectedId = e.selected?.id;
+						const newOptionId = e.newOption?.id;
+
+						const combinedId = selectedId && newOptionId ? `${selectedId}-${newOptionId}` : null;
+
+						return (
+							<div
+								key={index}
+								className="cardDetails-sharedClass py-3 px-5 cursor-pointer flex items-center justify-between"
+								onClick={() => {
+									if (e.combinedName === `${e.selected?.name}-${e.newOption?.name}` && combinedId) {
+										handleOptionClick(combinedId, e.combinedName); // Send both ID and name
+									} else {
+										console.log('ID not found for the selected option:', e);
+									}
+								}}
+							>
+								<p className="fill-title">{e.combinedName || e.name}</p>
+								<div onClick={(event) => handleRemoveOption(event, index)}>
+									<RemoveIcon className="fill-title cursor-pointer" />
+								</div>
+							</div>
+						);
+					})}
+			</div>
+
+			{/* open form by id */}
+			{openFormById && (
+				<FormOptionById
+					openFormById={openFormById}
+					handleClose={() => setOpenFormById(false)}
+					selectedOptionId={selectedOptionId} // Pass the selected ID
+					selectedOptionName={selectedOptionName} // Pass the selected Name
+				/>
+			)}
 		</div>
 	);
 }

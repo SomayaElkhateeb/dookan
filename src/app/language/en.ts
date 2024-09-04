@@ -1515,6 +1515,16 @@ export const english = {
 	'Uses Per Coupon': 'Uses Per Coupon',
 	'Coupon Code': 'Coupon Code',
 	'Condition Type': 'Condition Type',
+
+	'Delete all attributes':'Delete all attributes',
+	'Smart Living':'Smart Living',
+	'add sub':'add sub',
+	'Subcategory name':'Subcategory name',
+	'Subcategory link (Slug)':'Subcategory link (Slug)',
+	'Subcategory description':'Subcategory description',
+	'Parent Subcategory':'Parent Subcategory',
+	'add options':'add options',
+
 	'Delete all attributes': 'Delete all attributes',
 	'Smart Living': 'Smart Living',
 	'add sub': 'add sub',
@@ -1531,4 +1541,5 @@ export const english = {
 	'Code Prefix': 'Code Prefix',
 	'Code Format': 'Code Format',
 	'Category Code': 'Category Code',
+
 };

@@ -1495,6 +1495,9 @@ export const arabic = {
 	'Subcategory link (Slug)':'',
 	'Subcategory description':'',
 	'Parent Subcategory':'',
+
+	'add options':'',
+
 	Alphanumeric: 'أبجدي رقمي',
 	Alphabetical: 'أبجدي',
 	Numeric: 'رقمي',
@@ -1504,4 +1507,5 @@ export const arabic = {
 	'Code Prefix': 'بادئة الكود',
 	'Code Format': 'تنسيق الكود',
 	'Category Code': 'رمز الفئة',
+
 } satisfies typeof english;

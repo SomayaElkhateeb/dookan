@@ -13,12 +13,14 @@ interface FormAutoCompleteFieldProps<T extends FieldValues> {
 	label?: string;
 	name: Path<T>;
 	array: { id: string; name: string }[];
+	onChange?: (value: any) => void;
 }
 export default function SpecificAutoCompleteInput<T extends FieldValues>({
 	formStore,
 	name,
 	label,
 	array,
+	onChange,
 }: FormAutoCompleteFieldProps<T>) {
 	return (
 		<FormField
@@ -31,6 +33,7 @@ export default function SpecificAutoCompleteInput<T extends FieldValues>({
 					getvalue={(value: any) => {
 						formStore.setError(name, { message: '', type: '' });
 						formStore.setValue(name, value)
+						if (onChange) onChange(value);
 					}}
 					name={name}
 					array={array}

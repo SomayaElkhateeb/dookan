@@ -1,6 +1,3 @@
-
-
-
 import { useEffect, useState } from 'react';
 import AuthForm from './_comp/IdentifierForm/IdentifierForm';
 import RegisterLayout from '../_comp/RegisterLayout';
@@ -17,7 +14,7 @@ export default function LoginPage() {
 	useEffect(() => {
 		localStorage.setItem("email", email);
 	}, [email]);
-
+	
 	const handleIdentifierChange = (identifier: string) => {
 		setIdentifier(identifier);
 	};
@@ -49,8 +46,3 @@ function Identifier({ identifier, setStep }: { identifier: string; setStep: (e: 
 		</div>
 	);
 }
-
-
-
-
-
