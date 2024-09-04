@@ -4,7 +4,7 @@ import { TaxCategory } from "src/pages/SettingsPage/Taxes/taxCategories/_hook/Ho
 
 export const handelDefaultValue = () => {
 	return {
-		cod: '',
+		code: '',
 		name: '',
 		description: '',
 		taxrates: []

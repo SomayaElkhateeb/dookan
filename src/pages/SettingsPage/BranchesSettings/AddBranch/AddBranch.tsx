@@ -34,7 +34,7 @@ export default function AddBranch() {
 
 	// redux
 	const dispatch = useAppDispatch();
-	const { isLoadingAddOrUpdate} = useAppSelector((state) => state.branchSettings);
+	const { isLoadingAddOrUpdate } = useAppSelector((state) => state.branchSettings);
 
 	const handleSubmit = (values: BranchesType) => {
 		console.log(values);
@@ -46,7 +46,18 @@ export default function AddBranch() {
 		// 		}
 		// 	})
 		// 	:
-		dispatch(postBranch(values)).then((promiseResponse) => {
+		// Format opening_days data
+		const formattedOpeningDays = values.opening_days.map((day) => ({
+			day: day.day,
+			is_open: day.is_open,
+			times: day.times.filter((time) => time.opening_time && time.closed_time),
+		}));
+
+		const formattedValues = {
+			...values,
+			opening_days: formattedOpeningDays,
+		};
+		dispatch(postBranch(formattedValues)).then((promiseResponse) => {
 			if (promiseResponse.payload.code === 200) {
 				navigate(-1);
 			}

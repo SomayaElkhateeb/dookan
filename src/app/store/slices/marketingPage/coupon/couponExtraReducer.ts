@@ -1,11 +1,15 @@
 import { ActionReducerMapBuilder } from '@reduxjs/toolkit';
-import { getCoupons, getCouponShow, postCoupon, postCouponMassDestroy } from './couponAsyncThunks';
+import {
+	getCoupons,
+	getCouponShow,
+	postCoupon,
+	postCouponMassDestroy,
+	deleteCoupon,
+} from './couponAsyncThunks';
 
-export const couponsReducer = (
-	builder: ActionReducerMapBuilder<any>,
-) => {
+export const couponsReducer = (builder: ActionReducerMapBuilder<any>) => {
 	builder
-		// // get Coupons
+		// get Coupons
 		.addCase(getCoupons.pending, (state) => {
 			state.isLoading = true;
 			state.error = null;
@@ -18,7 +22,7 @@ export const couponsReducer = (
 			state.isLoading = false;
 			state.error = action.payload;
 		})
-		// // get coupon Show
+		// get coupon Show
 		.addCase(getCouponShow.pending, (state) => {
 			state.isLoading = true;
 			state.error = null;
@@ -41,7 +45,7 @@ export const couponsReducer = (
 		.addCase(postCoupon.rejected, (state, action) => {
 			state.isLoadingAddOrUpdate = false;
 		})
-		
+
 		//  post Coupon Mass Destroy
 		.addCase(postCouponMassDestroy.pending, (state) => {
 			state.isLoadingAddOrUpdate = true;
@@ -52,5 +56,17 @@ export const couponsReducer = (
 		.addCase(postCouponMassDestroy.rejected, (state, action) => {
 			state.isLoadingAddOrUpdate = false;
 		})
-
+		//! Delete Cart Rule
+		.addCase(deleteCoupon.pending, (state) => {
+			state.isLoading = true;
+			state.error = null;
+		})
+		.addCase(deleteCoupon.fulfilled, (state, action) => {
+			state.isLoading = false;
+			state.coupons = state.coupons.filter((coupon: CartRulesItem) => coupon.id !== action.payload);
+		})
+		.addCase(deleteCoupon.rejected, (state, action) => {
+			state.isLoading = false;
+			state.error = action.error.message || 'Failed to delete coupon';
+		});
 };

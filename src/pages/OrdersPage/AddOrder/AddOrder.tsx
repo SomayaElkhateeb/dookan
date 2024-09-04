@@ -21,6 +21,7 @@ import { getShippingList } from 'src/app/store/slices/settingsPage/shipping/ship
 import { AddCheckOutFormValues } from './Comp/AddCheckOut/_hook/useAddCheckOutForm';
 
 export default function AddOrder() {
+
 	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
@@ -28,10 +29,12 @@ export default function AddOrder() {
 	const { isLoadingAddOrUpdate } = useAppSelector((state) => state.addOrder);
 
 	useEffect(() => {
+
 		dispatch(getAllCustomersTable());
 		dispatch(getAllProductsTable());
 		dispatch(getMerchantPaymentList());
 		dispatch(getShippingList());
+
 	}, [dispatch]);
 
 	//  get customer info with id params
@@ -41,8 +44,10 @@ export default function AddOrder() {
 	const { goNext, goPrevious, activeStep, setActiveStep } = useStepNavigator();
 
 	const handleFinish = (values?: AddCheckOutFormValues) => {
-		const formData = new FormData();
 
+		console.log("AddOrder", values)
+		const formData = new FormData();
+		
 		formData.append('customer_id', Add_Order_Data.customer_id);
 		formData.append('address_id', Add_Order_Data.address_id);
 		Add_Order_Data?.products?.map((e, i) => {

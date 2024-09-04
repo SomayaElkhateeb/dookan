@@ -4,23 +4,19 @@ import SpecificAutoCompleteInput from 'src/app/components/ui/SpecificAutoComplet
 import { AddCustomerGroupPageSchemaValues } from '../_schema/AddCustomerGroupSchema';
 import { useAppSelector } from 'src/app/store';
 
-
-
 export default function ChooseCustomers({
 	formStore,
 }: {
 	formStore: UseFormReturn<AddCustomerGroupPageSchemaValues>;
 }) {
 	//  hooks
-	
+
 	const { t } = useTranslation();
-	
 
-
-	// ///////////////////////////
+	// ====================================
 	//  selectors
 	const { allCustomers } = useAppSelector((state) => state.allCustomer);
-
+	console.log('allCustomers', allCustomers);
 	return (
 		<div className='global-cards gap-[1.2rem]'>
 			<h2 className='title'>

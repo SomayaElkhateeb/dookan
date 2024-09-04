@@ -30,6 +30,7 @@ export default function SelectProductsDialog({
 	const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
 
 	const { allProducts } = useAppSelector((state) => state.allProducts);
+	console.log('allProducts', allProducts);
 	useEffect(() => {
 		// Simulate fetching data from API
 		setProducts(allProducts);

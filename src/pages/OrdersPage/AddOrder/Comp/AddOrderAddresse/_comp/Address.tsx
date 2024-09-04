@@ -25,7 +25,7 @@ interface AddressProps<TFormStore> {
 	setSendGift: (value: boolean) => void;
 	selectedOption: string;
 	setSelectedOption: (option: string) => void;
-	details?:boolean
+	details?: boolean;
 }
 
 export default function Address<TFormStore>(props: AddressProps<TFormStore>) {
@@ -38,7 +38,7 @@ export default function Address<TFormStore>(props: AddressProps<TFormStore>) {
 		setSendGift,
 		selectedOption,
 		setSelectedOption,
-		details
+		details,
 	} = props;
 	const { t } = useTranslation();
 
@@ -96,7 +96,7 @@ export default function Address<TFormStore>(props: AddressProps<TFormStore>) {
 						/>
 					</div>
 				)}
-				<div className={`grid gap-4 col-span-2 xl:${details?'col-span-2':'col-span-1'}`}>
+				<div className={`grid gap-4 col-span-2 xl:${details ? 'col-span-2' : 'col-span-1'}`}>
 					<FormField
 						formStore={formStore}
 						name='building'
@@ -126,25 +126,30 @@ export default function Address<TFormStore>(props: AddressProps<TFormStore>) {
 function ManualAddressForm<TFormStore>({
 	formStore,
 	isName,
-	details
+	details,
 }: {
 	formStore: ValidFormStoreByValues<TFormStore, AddAddressInterface>;
 	isName?: boolean;
-	details?:boolean
+	details?: boolean;
 }) {
 	const { t } = useTranslation();
 
 	//  get CountriesData  with api request
 	const { data } = useQuery([`countriesData`], () => CountriesApi.countries());
+	
 	let CountryId = formStore.getValues('country') ? formStore.getValues('country') : '';
 	const { data: CitiesData } = useQuery([`citiesData`, CountryId], () =>
 		CountriesApi.cities(CountryId ? CountryId : ''),
 	);
+
+
+
 	let CountriesData = data?.data?.data;
 	let cities = CitiesData?.data?.data;
+
 	return (
 		<section className='grid grid-cols-2 lg:col-span-2'>
-			<div className={`grid col-span-2 xl:${details?'col-span-2':'col-span-1'} gap-4`}>
+			<div className={`grid col-span-2 xl:${details ? 'col-span-2' : 'col-span-1'} gap-4`}>
 				{/* {isName && (
 					<FormField
 						formStore={formStore}

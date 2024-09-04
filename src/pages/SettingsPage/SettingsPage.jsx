@@ -51,77 +51,77 @@ const SettingsPage = () => {
 			description: t('Enable and integration payment gateways'),
 		},
 		{
-			id: 3,
+			id: 4,
 			path: 'system_payment',
 			Icon: PaymentIcon,
 			title: t('System Payment Methods'),
 			description: t('Enable and integration payment gateways'),
 		},
 		{
-			id: 4,
+			id: 5,
 			path: 'language',
 			Icon: LanguageIcon,
 			title: t('Languages & defaults'),
 			description: t('Setup store language, currency, geo zones'),
 		},
 		{
-			id: 5,
+			id: 6,
 			path: 'branches',
 			Icon: InventoryIcon,
 			title: t('Branches'),
 			description: t('Manage places you stock inventory, and sell products.'),
 		},
 		{
-			id: 6,
+			id: 7,
 			path: 'users',
 			Icon: Person,
 			title: t('Users & Permissions'),
 			description: t('Users Settings'),
 		},
 		{
-			id: 7,
+			id: 8,
 			path: 'reviews',
 			Icon: ReviewsIcon,
 			title: t('Reviews'),
 			description: t('Manage posted reviews'),
 		},
 		{
-			id: 8,
+			id: 9,
 			path: 'queries',
 			Icon: QueryIcon,
 			title: t('Queries'),
 			description: t('Manage posted queries'),
 		},
 		{
-			id: 9,
+			id: 10,
 			path: 'customizations',
 			Icon: EditIcon,
 			title: t('Customizations'),
 			description: t('Customize checkout, products and orders options'),
 		},
 		{
-			id: 10,
+			id: 11,
 			path: 'taxes',
 			Icon: TaxIcon,
 			title: t('Taxes'),
 			description: t('Taxes rate & Classes'),
 		},
 		{
-			id: 11,
+			id: 12,
 			path: 'billing',
 			Icon: WalletIcon,
 			title: t('Billing & plans'),
 			description: t('Manage and pay your bills'),
 		},
 		{
-			id: 12,
+			id: 13,
 			path: '/',
 			Icon: DomainIcon,
 			title: t('Domains'),
 			description: t('Setup store domains'),
 		},
 		{
-			id: 13,
+			id: 14,
 			path: 'notification',
 			Icon: ReviewsIcon,
 			title: t('E-Mail Notifications'),
@@ -131,9 +131,9 @@ const SettingsPage = () => {
 
 	// redux
 	const dispatch = useAppDispatch();
-	const { permissions, isLoading, error } = useAppSelector((state) => state.rolesSettings);
+	// const { permissions, isLoading, error } = useAppSelector((state) => state.rolesSettings);
 
-	console.log('permissions', permissions);
+	// console.log('permissions', permissions);
 
 	useEffect(() => {
 		dispatch(getPermissions());

@@ -1495,4 +1495,13 @@ export const arabic = {
 	'Subcategory link (Slug)':'',
 	'Subcategory description':'',
 	'Parent Subcategory':'',
+	Alphanumeric: 'أبجدي رقمي',
+	Alphabetical: 'أبجدي',
+	Numeric: 'رقمي',
+	'Coupon Quantity': 'كمية الكوبون',
+	'Code Length': 'طول الكود',
+	'Code Suffix': 'لاحقة الكود',
+	'Code Prefix': 'بادئة الكود',
+	'Code Format': 'تنسيق الكود',
+	'Category Code': 'رمز الفئة',
 } satisfies typeof english;

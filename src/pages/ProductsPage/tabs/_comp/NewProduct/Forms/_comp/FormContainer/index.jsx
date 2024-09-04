@@ -59,13 +59,6 @@ export default function ProductFormContainer(props) {
 							onSubmit={() => props.onSubmit()}
 						/>
 					</SubHeader>
-					{/* <h1>
-							<button className='text-black whitespace-nowrap' onClick={() => navigate(-1)}>
-								{'<'}
-							</button>{' '}
-							{title !== 'configurable' && title !== 'simple' ? `Add ${title}` : 'Add Product'}
-						</h1> */}
-
 					{!xs && (
 						<ScrollArea className='w-full max-h-[95dvh] pb-2'>
 							<div className='flex gap-4 capitalize text-lg font-medium'>

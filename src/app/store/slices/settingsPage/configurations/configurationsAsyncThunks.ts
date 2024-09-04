@@ -8,30 +8,27 @@ import { languageSettingsInterface } from 'src/pages/SettingsPage/LanguageSettin
 import { GeneralSettingsInterface } from 'src/pages/SettingsPage/GeneralSettings/_hook/HookForGeneralForm';
 import { OrderCustomize } from 'src/pages/SettingsPage/CustomizationsSettings/_hook/HookOrderInvoiceCustomize';
 import { DoubleOpt } from 'src/pages/SettingsPage/CustomizationsSettings/_hook/HookNewsletterConsent';
-import { ProductCustomize } from 'src/pages/SettingsPage/CustomizationsSettings/_hook/HookProductCustomize';
+import { ProductCustomize } from 'src/pages/SettingsPage/CustomizationsSettings/_hook/CustomizationsSettingsHooks';
 import { CheckoutCustomize } from 'src/pages/SettingsPage/CustomizationsSettings/_hook/HookCheckoutCustomize';
 import { TaxConfigSetting } from 'src/pages/SettingsPage/Taxes/taxRates/_hook/HookTaxConfigSettings';
 
-
 // get config list
 // post store custom
-export const postStoreCustom = createAsyncThunk(
-	"postStoreCustom/postStoreCustom",
-	(payload: any) =>
-		PublicRequest.postData(payload, `merchant/settings/config/store-custom`)
-			.then((res: any) => {
-				if (res) {
-					toast.success(res?.message);
-					return res;
-				}
-			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+export const postStoreCustom = createAsyncThunk('postStoreCustom/postStoreCustom', (payload: any) =>
+	PublicRequest.postData(payload, `merchant/settings/config/store-custom`)
+		.then((res: any) => {
+			if (res) {
+				toast.success(res?.message);
+				return res;
+			}
+		})
+		.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 
 ////////////////////////////////////////////////////////////////////////
 // post general settings store
 export const postGeneralSettingsStore = createAsyncThunk(
-	"postGeneralSettingsStore/postGeneralSettingsStore",
+	'postGeneralSettingsStore/postGeneralSettingsStore',
 	(payload: GeneralSettingsInterface) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -40,12 +37,12 @@ export const postGeneralSettingsStore = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post front defaults
 export const postFrontDefaults = createAsyncThunk(
-	"postFrontDefaults/postFrontDefaults",
+	'postFrontDefaults/postFrontDefaults',
 	(payload: languageSettingsInterface) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -54,12 +51,13 @@ export const postFrontDefaults = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post review
-export const postReview = createAsyncThunk( // finished but it has a problem
-	"postReview/postReview",
+export const postReview = createAsyncThunk(
+	// finished but it has a problem
+	'postReview/postReview',
 	(payload: ReviewInterface) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -68,12 +66,13 @@ export const postReview = createAsyncThunk( // finished but it has a problem
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post queries
-export const postQueries = createAsyncThunk( // finished but it has a problem
-	"postQueries/postQueries",
+export const postQueries = createAsyncThunk(
+	// finished but it has a problem
+	'postQueries/postQueries',
 	(payload: QueriesInterface) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -82,12 +81,12 @@ export const postQueries = createAsyncThunk( // finished but it has a problem
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post customizations-checkout
 export const postCustomizationsCheckout = createAsyncThunk(
-	"postCustomizationsCheckout/postCustomizationsCheckout",
+	'postCustomizationsCheckout/postCustomizationsCheckout',
 	(payload: CheckoutCustomize) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -96,12 +95,12 @@ export const postCustomizationsCheckout = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post customization-product
 export const postCustomizationProduct = createAsyncThunk(
-	"postCustomizationProduct/postCustomizationProduct",
+	'postCustomizationProduct/postCustomizationProduct',
 	(payload: ProductCustomize) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -110,12 +109,12 @@ export const postCustomizationProduct = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post customization-double-opt
 export const postCustomizationDoubleOpt = createAsyncThunk(
-	"postCustomizationDoubleOpt/postCustomizationDoubleOpt",
+	'postCustomizationDoubleOpt/postCustomizationDoubleOpt',
 	(payload: DoubleOpt) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -124,12 +123,12 @@ export const postCustomizationDoubleOpt = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post customization-order-invoice
 export const postCustomizationOrderInvoice = createAsyncThunk(
-	"postCustomizationOrderInvoice/postCustomizationOrderInvoice",
+	'postCustomizationOrderInvoice/postCustomizationOrderInvoice',
 	(payload: OrderCustomize) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -138,12 +137,12 @@ export const postCustomizationOrderInvoice = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
 ////////////////////////////////////////////////////////////////////////
 // post taxes
 export const postTaxesConfiguration = createAsyncThunk(
-	"postTaxesConfiguration/postTaxesConfiguration",
+	'postTaxesConfiguration/postTaxesConfiguration',
 	(payload: TaxConfigSetting) =>
 		PublicRequest.postData(payload, `merchant/settings/config/store`)
 			.then((res: any) => {
@@ -152,14 +151,5 @@ export const postTaxesConfiguration = createAsyncThunk(
 					return res;
 				}
 			})
-			.catch(err => PublicHandlingErrors.onErrorResponse(err)),
+			.catch((err) => PublicHandlingErrors.onErrorResponse(err)),
 );
-
-
-
-
-
-
-
-
-

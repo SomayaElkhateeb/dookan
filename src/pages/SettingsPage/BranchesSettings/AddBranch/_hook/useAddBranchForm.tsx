@@ -1,4 +1,3 @@
-
 const createEmptyDayInfo = (): DailyHours => ({
 	officialHours: { opening_time: '', closed_time: '' },
 	additionalHours: { opening_time: '', closed_time: '' },
@@ -13,20 +12,17 @@ export const initialDayInfo: WeekSchedule = {
 	Fri: createEmptyDayInfo(),
 	Sat: createEmptyDayInfo(),
 	Sun: createEmptyDayInfo(),
-
 };
 
 export interface TimeRange {
 	opening_time: string;
 	closed_time: string;
 	is_open: boolean;
-
 }
 
 export interface DailyHours {
 	officialHours: TimeRange;
 	additionalHours?: TimeRange;
-
 }
 
 export interface WeekSchedule {
@@ -37,7 +33,6 @@ export interface WeekSchedule {
 	Fri: DailyHours;
 	Sat: DailyHours;
 	Sun: DailyHours;
-
 }
 
 // {"day":"sunday","is_open":1,"times":[{"opening_time":"10:15","closed_time":"12:20"},{"opening_time":"15:30","closed_time":"22:20"}]}
@@ -102,10 +97,20 @@ export default function useAddBranchForm() {
 		closed_time: z.string().regex(timePattern),
 	});
 
+	// const OpeningDaySchema = z.object({
+	// 	day: z.string(),
+	// 	is_open: z.number().min(0).max(1),
+	// 	times: z.array(TimeSlotSchema),
+	// });
 	const OpeningDaySchema = z.object({
 		day: z.string(),
 		is_open: z.number().min(0).max(1),
-		times: z.array(TimeSlotSchema),
+		times: z.array(
+			z.object({
+				opening_time: z.string().regex(timePattern),
+				closed_time: z.string().regex(timePattern),
+			}),
+		),
 	});
 
 	const branchSettingsSchema = {
@@ -140,7 +145,8 @@ export default function useAddBranchForm() {
 		longitude: z.number().optional(),
 		work_time: z.string().regex(timePattern),
 		show_in_footer: z.coerce.number().min(0).max(1).optional(),
-		opening_days: z.array(OpeningDaySchema).optional(),
+		opening_days: z.array(OpeningDaySchema),
+		// opening_days: z.array(OpeningDaySchema).optional(),
 	};
 
 	const handleDefaultValue = (): BranchesType => {
@@ -176,14 +182,26 @@ export default function useAddBranchForm() {
 			longitude: 0,
 			work_time: '',
 			show_in_footer: 0,
-			opening_days: {
-				day: 'sunday',
-				is_open: 0,
-				times: {
-					opening_time: '',
-					closed_time: '',
+			// opening_days: {
+			// 	day: 'sunday',
+			// 	is_open: 0,
+			// 	times: {
+			// 		opening_time: '',
+			// 		closed_time: '',
+			// 	},
+			// },
+			opening_days: [
+				{
+					day: 'sunday',
+					is_open: 0,
+					times: [
+						{
+							opening_time: '',
+							closed_time: '',
+						},
+					],
 				},
-			},
+			],
 		};
 	};
 

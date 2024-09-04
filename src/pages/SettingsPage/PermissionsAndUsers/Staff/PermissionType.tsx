@@ -1,5 +1,3 @@
-
-
 // import * as React from 'react';
 // import { styled } from '@mui/material/styles';
 // import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
@@ -199,7 +197,6 @@
 //     );
 // }
 
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
@@ -216,48 +213,48 @@ import SearchInput from 'src/app/components/ui/form/SearchInput';
 
 // styles
 const Accordion = styled((props: AccordionProps) => (
-    <MuiAccordion disableGutters elevation={0} square {...props} />
+	<MuiAccordion disableGutters elevation={0} square {...props} />
 ))(() => ({
-    paddingTop: 0,
-    paddingBottom: 0,
-    '&:last-child': {
-        borderBottom: 0,
-    },
-    '&::before': {
-        display: 'none',
-    },
+	paddingTop: 0,
+	paddingBottom: 0,
+	'&:last-child': {
+		borderBottom: 0,
+	},
+	'&::before': {
+		display: 'none',
+	},
 }));
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
-    <MuiAccordionSummary
-        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-        {...props}
-    />
+	<MuiAccordionSummary
+		expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+		{...props}
+	/>
 ))(({ theme }) => ({
-    backgroundColor: 'white',
-    flexDirection: 'row-reverse',
-    '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-        transform: 'rotate(90deg)',
-    },
-    '& .MuiAccordionSummary-content': {
-        marginLeft: theme.spacing(1),
-    },
+	backgroundColor: 'white',
+	flexDirection: 'row-reverse',
+	'& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+		transform: 'rotate(90deg)',
+	},
+	'& .MuiAccordionSummary-content': {
+		marginLeft: theme.spacing(1),
+	},
 }));
 
 const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
-    '& .MuiCheckbox-root': {
-        marginRight: theme.spacing(2),
-    },
-    '& .MuiTypography-root': {
-        flexGrow: 1,
-    },
+	'& .MuiCheckbox-root': {
+		marginRight: theme.spacing(2),
+	},
+	'& .MuiTypography-root': {
+		flexGrow: 1,
+	},
 }));
 
 type PermissionsData = {
-    [key: string]: {
-        name: string;
-        children?: PermissionsData;
-    };
+	[key: string]: {
+		name: string;
+		children?: PermissionsData;
+	};
 };
 
 type CheckedItems = string[];
@@ -265,145 +262,177 @@ type CheckedItems = string[];
 type HandleCheckboxChange = (id: string) => (event: React.ChangeEvent<HTMLInputElement>) => void;
 
 const updateCheckedItems = (
-    key: string,
-    checked: boolean,
-    checkedItems: CheckedItems,
-    data: PermissionsData
-): { updatedItems: CheckedItems, checkedArray: string[] } => {
-    const updatedItems = new Set(checkedItems); // Use Set to avoid duplicates
-    const checkedArray: string[] = [];
+	key: string,
+	checked: boolean,
+	checkedItems: CheckedItems,
+	data: PermissionsData,
+): { updatedItems: CheckedItems; checkedArray: string[] } => {
+	const updatedItems = new Set(checkedItems); // Use Set to avoid duplicates
+	const checkedArray: string[] = [];
 
-    const processNode = (nodeKey: string) => {
-        if (checked) {
-            updatedItems.add(nodeKey);
-        } else {
-            updatedItems.delete(nodeKey);
-        }
+	const processNode = (nodeKey: string) => {
+		if (checked) {
+			updatedItems.add(nodeKey);
+		} else {
+			updatedItems.delete(nodeKey);
+		}
 
-        if (data[nodeKey] && data[nodeKey].children) {
-            Object.keys(data[nodeKey].children).forEach((childKey) => {
-                const fullChildKey = `${nodeKey}.${childKey}`;
-                processNode(fullChildKey);
-            });
-        }
-    };
+		if (data[nodeKey] && data[nodeKey].children) {
+			Object.keys(data[nodeKey].children).forEach((childKey) => {
+				const fullChildKey = `${nodeKey}.${childKey}`;
+				processNode(fullChildKey);
+			});
+		}
+	};
 
-    processNode(key);
+	processNode(key);
 
-    checkedArray.push(...Array.from(updatedItems)); // Convert Set to Array
+	checkedArray.push(...Array.from(updatedItems)); // Convert Set to Array
 
-    return { updatedItems: Array.from(updatedItems), checkedArray };
+	return { updatedItems: Array.from(updatedItems), checkedArray };
 };
 
-const NestedAccordion = ({ data, checkedItems, handleCheckboxChange, parentKey = '' }: { data: PermissionsData; checkedItems: CheckedItems; handleCheckboxChange: HandleCheckboxChange, parentKey?: string }) => {
-    const [nestedExpanded, setNestedExpanded] = React.useState<string | false>(false);
+const NestedAccordion = ({
+	data,
+	checkedItems,
+	handleCheckboxChange,
+	parentKey = '',
+}: {
+	data: PermissionsData;
+	checkedItems: CheckedItems;
+	handleCheckboxChange: HandleCheckboxChange;
+	parentKey?: string;
+}) => {
+	const [nestedExpanded, setNestedExpanded] = React.useState<string | false>(false);
 
-    const handleNestedChange =
-        (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
-            setNestedExpanded(newExpanded ? panel : false);
-        };
+	const handleNestedChange =
+		(panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+			setNestedExpanded(newExpanded ? panel : false);
+		};
 
-    return (
-        <>
-            {Object.entries(data).map(([key, child], index) => {
-                const fullKey = parentKey ? `${parentKey}.${key}` : key;
-                return child.children && Object.keys(child.children).length > 0 ? (
-                    <Accordion key={index} expanded={nestedExpanded === key} onChange={handleNestedChange(key)}>
-                        <StyledAccordionSummary aria-controls={`${key}-content`} id={`${key}-header`}>
-                            <Checkbox
-                                checked={checkedItems.includes(fullKey)}
-                                onChange={handleCheckboxChange(fullKey)}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <Typography sx={{ marginTop: 1 }}>{child.name}</Typography>
-                        </StyledAccordionSummary>
-                        <Box sx={{ padding: "0 60px" }}>
-                            <NestedAccordion data={child.children} checkedItems={checkedItems} handleCheckboxChange={handleCheckboxChange} parentKey={fullKey} />
-                        </Box>
-                    </Accordion>
-                ) : (
-                    <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                        <Checkbox
-                            checked={checkedItems.includes(fullKey)}
-                            onChange={handleCheckboxChange(fullKey)}
-                            inputProps={{ 'aria-label': 'controlled' }}
-                        />
-                        <Typography sx={{ marginTop: 1 }}>{child.name}</Typography>
-                    </div>
-                )
-            })}
-        </>
-    );
+	return (
+		<>
+			{Object.entries(data).map(([key, child], index) => {
+				const fullKey = parentKey ? `${parentKey}.${key}` : key;
+				return child.children && Object.keys(child.children).length > 0 ? (
+					<Accordion
+						key={index}
+						expanded={nestedExpanded === key}
+						onChange={handleNestedChange(key)}
+					>
+						<StyledAccordionSummary aria-controls={`${key}-content`} id={`${key}-header`}>
+							<Checkbox
+								checked={checkedItems.includes(fullKey)}
+								onChange={handleCheckboxChange(fullKey)}
+								inputProps={{ 'aria-label': 'controlled' }}
+							/>
+							<Typography sx={{ marginTop: 1 }}>{child.name}</Typography>
+						</StyledAccordionSummary>
+						<Box sx={{ padding: '0 60px' }}>
+							<NestedAccordion
+								data={child.children}
+								checkedItems={checkedItems}
+								handleCheckboxChange={handleCheckboxChange}
+								parentKey={fullKey}
+							/>
+						</Box>
+					</Accordion>
+				) : (
+					<div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+						<Checkbox
+							checked={checkedItems.includes(fullKey)}
+							onChange={handleCheckboxChange(fullKey)}
+							inputProps={{ 'aria-label': 'controlled' }}
+						/>
+						<Typography sx={{ marginTop: 1 }}>{child.name}</Typography>
+					</div>
+				);
+			})}
+		</>
+	);
 };
 
 // PermissionsData
-export default function PermissionType({ formStore }: { formStore: UseFormReturn<AddRolesInterface> }) {
-    const [expanded, setExpanded] = React.useState<string | false>(false);
-    const [checkedItems, setCheckedItems] = React.useState<CheckedItems>([]);
-    const [checkedArray, setCheckedArray] = React.useState<string[]>([]);
+export default function PermissionType({
+	formStore,
+}: {
+	formStore: UseFormReturn<AddRolesInterface>;
+}) {
+	const [expanded, setExpanded] = React.useState<string | false>(false);
+	const [checkedItems, setCheckedItems] = React.useState<CheckedItems>([]);
+	const [checkedArray, setCheckedArray] = React.useState<string[]>([]);
 
-    // search
-    const [searchQuery, setSearchQuery] = React.useState('');
+	// search
+	const [searchQuery, setSearchQuery] = React.useState('');
 
-    // redux
-    const dispatch = useAppDispatch();
-    const permissions = useAppSelector((state) => state.rolesSettings.permissions) || {};
-    const filteredPermissions = React.useMemo(() => {
-        return Object.entries(permissions).filter(([key, value]) =>
-            key.toLowerCase().includes(searchQuery.toLowerCase())
-        ).reduce((obj, [key, value]) => {
-            obj[key] = value;
-            return obj;
-        }, {} as PermissionsData);
-    }, [searchQuery, permissions]);
+	// redux
+	const dispatch = useAppDispatch();
+	const permissions = useAppSelector((state) => state.rolesSettings.permissions) || {};
+	const filteredPermissions = React.useMemo(() => {
+		return Object.entries(permissions)
+			.filter(([key, value]) => key.toLowerCase().includes(searchQuery.toLowerCase()))
+			.reduce((obj, [key, value]) => {
+				obj[key] = value;
+				return obj;
+			}, {} as PermissionsData);
+	}, [searchQuery, permissions]);
 
-    React.useEffect(() => {
-        dispatch(getPermissions());
-    }, [dispatch]);
+	React.useEffect(() => {
+		dispatch(getPermissions());
+	}, [dispatch]);
 
-    const handleChange =
-        (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
-            setExpanded(newExpanded ? panel : false);
-        };
+	const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+		setExpanded(newExpanded ? panel : false);
+	};
 
-    const handleCheckboxChange: HandleCheckboxChange = (key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-        const newCheckedStatus = event.target.checked;
-        const { updatedItems, checkedArray: newCheckedArray } = updateCheckedItems(key, newCheckedStatus, checkedItems, permissions);
-        setCheckedItems(updatedItems);
+	const handleCheckboxChange: HandleCheckboxChange =
+		(key: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+			const newCheckedStatus = event.target.checked;
+			const { updatedItems, checkedArray: newCheckedArray } = updateCheckedItems(
+				key,
+				newCheckedStatus,
+				checkedItems,
+				permissions,
+			);
+			setCheckedItems(updatedItems);
 
-        if (newCheckedStatus) {
-            setCheckedArray((prevArray) => [...prevArray, ...newCheckedArray]);
-        } else {
-            setCheckedArray((prevArray) => prevArray.filter((item) => !newCheckedArray.includes(item)));
-        }
-    };
+			if (newCheckedStatus) {
+				setCheckedArray((prevArray) => [...prevArray, ...newCheckedArray]);
+			} else {
+				setCheckedArray((prevArray) => prevArray.filter((item) => !newCheckedArray.includes(item)));
+			}
+		};
 
-    React.useEffect(() => {
-        console.log('Checked array:', checkedArray);
-    }, [checkedArray]);
+	React.useEffect(() => {
+		console.log('Checked array:', checkedArray);
+	}, [checkedArray]);
 
-    return (
-        <>
-            <SearchInput setSearchQuery={setSearchQuery} />
-            {Object.entries(filteredPermissions).map(([key, item], index) => {
-                const fullKey = key;
-                return (
-                    <Accordion key={index} expanded={expanded === key} onChange={handleChange(key)}>
-                        <StyledAccordionSummary aria-controls={`${key}-content`} id={`${key}-header`}>
-                            <Checkbox
-                                checked={checkedItems.includes(fullKey)}
-                                onChange={handleCheckboxChange(fullKey)}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <Typography sx={{ marginTop: 1 }}>{item.name}</Typography>
-                        </StyledAccordionSummary>
-                        <Box sx={{ padding: "0 40px" }}>
-                            <NestedAccordion data={item.children || {}} checkedItems={checkedItems} handleCheckboxChange={handleCheckboxChange} parentKey={fullKey} />
-                        </Box>
-                    </Accordion>
-                );
-            })}
-        </>
-    );
+	return (
+		<>
+			<SearchInput setSearchQuery={setSearchQuery} />
+			{Object.entries(filteredPermissions).map(([key, item], index) => {
+				const fullKey = key;
+				return (
+					<Accordion key={index} expanded={expanded === key} onChange={handleChange(key)}>
+						<StyledAccordionSummary aria-controls={`${key}-content`} id={`${key}-header`}>
+							<Checkbox
+								checked={checkedItems.includes(fullKey)}
+								onChange={handleCheckboxChange(fullKey)}
+								inputProps={{ 'aria-label': 'controlled' }}
+							/>
+							<Typography sx={{ marginTop: 1 }}>{item.name}</Typography>
+						</StyledAccordionSummary>
+						<Box sx={{ padding: '0 40px' }}>
+							<NestedAccordion
+								data={item.children || {}}
+								checkedItems={checkedItems}
+								handleCheckboxChange={handleCheckboxChange}
+								parentKey={fullKey}
+							/>
+						</Box>
+					</Accordion>
+				);
+			})}
+		</>
+	);
 }
-

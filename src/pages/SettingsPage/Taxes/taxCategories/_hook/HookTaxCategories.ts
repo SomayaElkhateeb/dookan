@@ -12,7 +12,7 @@ const stringZod = z.string().min(1);
 export default function useCustomHookAddTaxCategory() {
     const handelDefaultValue = () => {
 		return {
-			cod: '',
+			code: '',
 			name: '',
 			description: '',
 			taxrates: '',
