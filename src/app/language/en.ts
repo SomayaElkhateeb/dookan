@@ -1522,4 +1522,5 @@ export const english = {
 	'Subcategory link (Slug)':'Subcategory link (Slug)',
 	'Subcategory description':'Subcategory description',
 	'Parent Subcategory':'Parent Subcategory',
+	'add options':'add options',
 };

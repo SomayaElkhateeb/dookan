@@ -146,15 +146,15 @@ export default function ConfigurableProductPage() {
 
 			!id
 				? dispatch(PostSimpleQuickProduct(refactorData)).then((promiseResponse) => {
-						if ((promiseResponse.payload.code = 200)) {
-							navigate(-1);
-						}
-				  })
+					if ((promiseResponse.payload.code = 200)) {
+						navigate(-1);
+					}
+				})
 				: dispatch(PostUpdateQuickProduct({ data: refactorData, id })).then((promiseResponse) => {
-						if ((promiseResponse.payload.code = 200)) {
-							navigate(-1);
-						}
-				  });
+					if ((promiseResponse.payload.code = 200)) {
+						navigate(-1);
+					}
+				});
 		},
 		defaultValues: ProductDefaultValues,
 	});
@@ -250,7 +250,7 @@ export default function ConfigurableProductPage() {
 			onSubmit={onSubmit}
 			sections={productsSections}
 		>
-			<section onSubmit={onSubmit} className='flex-grow flex flex-col gap-4 relative bg-red-700'>
+			<section onSubmit={onSubmit} className='flex-grow flex flex-col gap-4 relative'>
 				<div className='custom-grid-parent gap-5  custom_container'>
 					<div className='flex-col-global grid-left gap-4'>
 						{productsSections.map(({ Elem, id }) => (

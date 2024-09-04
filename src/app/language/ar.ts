@@ -1495,4 +1495,5 @@ export const arabic = {
 	'Subcategory link (Slug)':'',
 	'Subcategory description':'',
 	'Parent Subcategory':'',
+	'add options':'',
 } satisfies typeof english;

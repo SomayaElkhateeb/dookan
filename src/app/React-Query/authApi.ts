@@ -33,20 +33,23 @@ export const AuthApi = {
 	login: (formData: passwordSchemaForm) => {
 		return MainApi.postForm('merchant/login', formData);
 	},
+	// login: (formData: passwordSchemaForm) => {
+	// 	return MainApi.postForm('merchant/login', formData);
+	// },
 
 	// getDomain: (formData: passwordSchemaForm) => {
 	// 	return axios.get(`https://my.dookan.net/api/v1/merchant/get-domain/${email}`, formData);
 	// },
-	getDomain: (identifier: string) => {
-		// Ensure the identifier is correctly formatted and passed without nesting.
-		return MainApi.get('merchant/get-domain', {
-			params: {
-				email: identifier,  // Corrected parameter
-				// locale: 'en',
-				// accept_token: true,
-			},
-		});
-	},
+	// getDomain: (identifier: string) => {
+	// 	// Ensure the identifier is correctly formatted and passed without nesting.
+	// 	return MainApi.get('merchant/get-domain', {
+	// 		params: {
+	// 			email: identifier,  // Corrected parameter
+	// 			// locale: 'en',
+	// 			// accept_token: true,
+	// 		},
+	// 	});
+	// },
 
 	logout: () => {
 		return MainApi.delete('admin/logout');
