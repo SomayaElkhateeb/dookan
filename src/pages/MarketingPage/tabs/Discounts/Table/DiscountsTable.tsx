@@ -115,7 +115,7 @@ export default function DiscountsTable({
 										/>
 									)} */}
 
-									<ArrowTables path={`addDiscount?id=${e?.id}`} />
+									<ArrowTables path={`admin/addDiscount?id=${e?.id}`} />
 								</div>
 							</GlobalTableCell>,
 						],

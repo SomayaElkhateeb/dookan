@@ -62,7 +62,7 @@ const CampaignElementTable = ({ sortBy }: CampaignTableInterface, ref) => {
 						elements: [
 							<GlobalTableCell
 								onClick={() => {
-									navigate(`?activityId=${e.id}`);
+									navigate(`admin/?activityId=${e.id}`);
 								}}
 								sx={{
 									fontSize: '13px',

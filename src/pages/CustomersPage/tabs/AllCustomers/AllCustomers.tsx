@@ -43,6 +43,7 @@ export default function AllCustomers() {
 	const { sortMenus, ActionsMenus, settingMenus, CustomersArrangedData, allCustomersIds } =
 		Use_Hook_ForAllCustomersPage(selectedOption);
 
+	
 	useEffect(() => {
 		dispatch(getAllCustomersTable());
 	}, [dispatch]);
@@ -72,7 +73,7 @@ export default function AllCustomers() {
 	useMemo(() => {
 		switch (selectedOption) {
 			case 'Bulk edit':
-				navigate('');
+				navigate(''); 
 				break;
 			case 'Delete customer':
 				handelOpenDialog();

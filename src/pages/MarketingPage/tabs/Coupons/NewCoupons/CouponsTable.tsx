@@ -90,7 +90,7 @@ export default function CouponsTable({
 							<div className={classData}>
 								<FaRegEdit
 									className='text-subtitle'
-									onClick={() => navigate(`addCoupon?id=${e?.id}`)}
+									onClick={() => navigate(`admin/addCoupon?id=${e?.id}`)}
 								/>
 
 								<MenuOptions

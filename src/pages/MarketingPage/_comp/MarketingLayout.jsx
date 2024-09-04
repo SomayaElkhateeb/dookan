@@ -21,6 +21,15 @@ const MarketingLayout = () => {
 			name: 'Campaigns',
 			path: 'campaigns',
 		},
+		{
+			name: 'Catalog Rule',
+			path: 'catalogRule',
+		},
+		{
+			name: 'Cart Rule',
+			path: 'cartRule',
+		},
+		
 	];
 
 	const isEmailForm = pathname.includes('email-form');

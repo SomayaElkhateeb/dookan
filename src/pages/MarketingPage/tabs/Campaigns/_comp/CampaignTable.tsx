@@ -86,7 +86,7 @@ const CampaignTable = ({ sortBy }: CampaignTableInterface, ref) => {
 							<GlobalTableCell
 								onClick={() => {
 									localStorage.setItem('campainName', e.name);
-									navigate(`${e.id}`);
+									navigate(`admin/${e.id}`);
 								}}
 								sx={{
 									fontSize: '13px',
