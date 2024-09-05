@@ -7,15 +7,16 @@ import { z } from 'zod';
 const RequiredAddressData = z.string().min(1);
 
 export interface AddInventoryInterface extends AddAddressInterface {
-	code: string;
-	description: string;
+	code: string; //?
+	name: string; //?
+	description: string;//?
 	priority: number;
 	branch_id: string;
-	contact_name: string;
-	contact_email: string;
-	contact_number: string;
-	contact_fax: number;
-	status: number;
+	contact_name: string;//?
+	contact_email: string;//?
+	contact_number: string;//?
+	contact_fax: number;//?
+	status: number;//?
 	postcode: string;
 }
 export const UseAddInventory = (selectedOption: string) => {
@@ -23,7 +24,7 @@ export const UseAddInventory = (selectedOption: string) => {
 		code: RequiredAddressData,
 		description: RequiredAddressData,
 		priority: z.coerce.number().positive(),
-		// name: RequiredAddressData,
+		name: RequiredAddressData,
 		branch_id: RequiredAddressData,
 		contact_name: RequiredAddressData,
 		contact_email: RequiredAddressData.email(),
@@ -33,12 +34,13 @@ export const UseAddInventory = (selectedOption: string) => {
 		contact_fax: z.coerce.number().positive(),
 		status: z.number(),
 		postcode: RequiredAddressData,
-		...createAddressSchema(false, selectedOption, true),
+		...createAddressSchema(false, selectedOption, false),
 	};
 
 	const handelDefaultValue = () => {
 		return {
 			code: '',
+			name: '',
 			description: '',
 			priority: 0,
 			branch_id: '',

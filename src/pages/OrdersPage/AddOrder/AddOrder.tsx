@@ -21,7 +21,6 @@ import { getShippingList } from 'src/app/store/slices/settingsPage/shipping/ship
 import { AddCheckOutFormValues } from './Comp/AddCheckOut/_hook/useAddCheckOutForm';
 
 export default function AddOrder() {
-
 	const { t } = useTranslation();
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
@@ -29,12 +28,10 @@ export default function AddOrder() {
 	const { isLoadingAddOrUpdate } = useAppSelector((state) => state.addOrder);
 
 	useEffect(() => {
-
 		dispatch(getAllCustomersTable());
 		dispatch(getAllProductsTable());
 		dispatch(getMerchantPaymentList());
 		dispatch(getShippingList());
-
 	}, [dispatch]);
 
 	//  get customer info with id params
@@ -44,29 +41,23 @@ export default function AddOrder() {
 	const { goNext, goPrevious, activeStep, setActiveStep } = useStepNavigator();
 
 	const handleFinish = (values?: AddCheckOutFormValues) => {
-
-		console.log("AddOrder", values)
+		console.log('AddOrder', values);
 		const formData = new FormData();
-		
 		formData.append('customer_id', Add_Order_Data.customer_id);
 		formData.append('address_id', Add_Order_Data.address_id);
 		Add_Order_Data?.products?.map((e, i) => {
 			formData.append(`items[${i}][product_id]`, e?.id);
 			formData.append(`items[${i}][quantity]`, e?.quantity.toString());
 		});
-
 		for (const [key, value] of Object.entries(values)) {
 			formData.append(key, value);
 		}
-
 		dispatch(PostAddOrder(formData)).then((promiseResponse) => {
 			if ((promiseResponse.payload.code = 200)) {
 				navigate(-1);
 				dispatch(clearData());
 			}
 		});
-
-		// Implement additional finish logic here
 	};
 
 	const tabs = [

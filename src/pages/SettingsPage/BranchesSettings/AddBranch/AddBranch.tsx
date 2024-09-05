@@ -47,11 +47,11 @@ export default function AddBranch() {
 		// 	})
 		// 	:
 		// Format opening_days data
-		const formattedOpeningDays = values.opening_days.map((day) => ({
+		const formattedOpeningDays = values.opening_days.map((day) => ([{
 			day: day.day,
 			is_open: day.is_open,
 			times: day.times.filter((time) => time.opening_time && time.closed_time),
-		}));
+		}]));
 
 		const formattedValues = {
 			...values,
