@@ -154,3 +154,32 @@ export default function PaymentSettings() {
 		</div>
 	);
 }
+
+
+// const data = : {
+// 	mpdhl: {
+// 			"active": "1",
+// 			"type": "per_order",
+// 		  "code": "DHLRate",
+// 			"method": "dhl",
+// 			"title": "DHL Shipping",
+// 			"description": "Marketplace DHL Shipping"
+// 	},
+// 	free: {
+// 			"active": "1",
+// 			"code": "free",
+// 			"method": "free_free",
+// 			"title": "Free Shipping",
+// 			"description": "Free Shipping",
+// 			"type": "per_order",
+// 	},
+// 	flatrate: {
+	
+// 			"type": "per_order",
+// 			"active": "1",
+// 			"code": "flatrate",
+// 			"method": "flatrate_flatrate",
+// 			"title": "Flat Rate",
+// 			"description": "Flat Rate Shipping"
+// 	}
+// },

@@ -5,8 +5,9 @@ import { Button, CheckBox } from 'src/app/components/optimized';
 import SingleChoiceChips from 'src/app/components/optimized/ChoiceChips/SingleChoiceChips';
 import TimePickerMui from 'src/app/components/optimized/Pickers/TimePicker';
 import FormField from 'src/app/components/ui/form/field';
+import { BranchInfoProps } from './_hook/useAddBranchForm';
 import { useTranslation } from 'react-i18next';
-import { BranchInfoProps, initialDayInfo, WeekSchedule } from '../_hook/useAddBranchForm';
+import { initialDayInfo, WeekSchedule } from '../_hook/useAddBranchForm';
 
 interface FixedDay {
 	day: 'Sun' | 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';

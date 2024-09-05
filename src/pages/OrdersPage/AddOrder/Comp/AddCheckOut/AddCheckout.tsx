@@ -39,10 +39,11 @@ export default function AddCheckout({
 	const dispatch = useAppDispatch();
 
 	const { formStore, onSubmit, formValues } = useAddCheckOutForm(onFinish, id);
-	const { merchantPaymentList } = useAppSelector((state) => state.merchantPaymentSettings);
-
-	const { shippingMethod } = useAppSelector((state) => state.shippingSettings);
 	const { shippingList } = useAppSelector((state) => state.shippingSettings);
+	const { paymentList } = useAppSelector((state) => state.paymentMethods);
+	
+	const shippingMethod = Object.values(shippingList).map(item => item.method);
+	const paymentMethods = paymentList.map((item) => item.method);
 
 	useEffect(() => {
 		dispatch(getShippingMethods());
@@ -53,10 +54,7 @@ export default function AddCheckout({
 		dispatch(getPaymentMethods());
 	}, [dispatch]);
 
-	const { paymentList } = useAppSelector((state) => state.paymentMethods);
-	const paymentMethods = paymentList.map((item) => item.method);
-	const shippingMethods = shippingMethod.map((item) => item.method);
-	console.log('shippingMethods', shippingMethods);
+
 	useEffect(() => {
 		orderItem?.status && formStore.setValue('status', orderItem?.status);
 		orderItem?.payment_title === 'Cash On Delivery' &&
@@ -91,7 +89,6 @@ export default function AddCheckout({
 					formStore={formStore}
 					name='payment_method'
 					label={t('Payment methods')}
-					// options={merchantPaymentList?.map((e) => e.payment_method.method)}
 					options={paymentMethods}
 				/>
 
@@ -141,7 +138,7 @@ export default function AddCheckout({
 					formStore={formStore}
 					name='shipping_method'
 					label={t('Shipping method')}
-					options={shippingMethods}
+					options={shippingMethod}
 					// options={[
 					// 	shippingList.free.method,
 					// 	shippingList.flatrate.method,

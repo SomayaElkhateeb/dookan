@@ -83,7 +83,7 @@ export default function AddInventoryPage() {
 			dispatch(getInventoryInfo(id));
 		}
 	}, [id]);
-
+	console.log('error', formStore.formState.errors);
 	return (
 		<Form {...formStore}>
 			<form onSubmit={onSubmit} className='flex-col-global'>
