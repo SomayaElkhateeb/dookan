@@ -5,10 +5,10 @@ const MarketingLayout = () => {
 	//  hooks
 	const { pathname } = useLocation();
 	const tabs = [
-		{
-			name: 'Apps',
-			path: 'apps',
-		},
+		// {
+		// 	name: 'Apps',
+		// 	path: 'apps',
+		// },
 		{
 			name: 'Discounts',
 			path: 'discounts',
@@ -17,10 +17,10 @@ const MarketingLayout = () => {
 			name: 'Coupons',
 			path: 'coupons',
 		},
-		{
-			name: 'Campaigns',
-			path: 'campaigns',
-		},
+		// {
+		// 	name: 'Campaigns',
+		// 	path: 'campaigns',
+		// },
 		{
 			name: 'Catalog Rule',
 			path: 'catalogRule',

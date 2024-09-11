@@ -8,7 +8,7 @@ type props<T> = {
 	getvalue: (value: any[]) => void;
 	name: string;
 	MainValue: string | any;
-    placeholder?:string
+	placeholder?: string
 };
 
 interface item {
@@ -22,7 +22,7 @@ function CustomAutoComplete<T extends item>({
 	getvalue,
 	name,
 	MainValue,
-    placeholder
+	placeholder
 }: props<T>) {
 	return (
 		<Autocomplete
@@ -47,10 +47,10 @@ function CustomAutoComplete<T extends item>({
 					variant='outlined'
 					{...params}
 					id={name}
-                    placeholder={placeholder}
-					// error={hasError(errors, name)}
-					// helperText={getError(errors, name)}
-					// disabled={isLoading}
+					placeholder={placeholder}
+				// error={hasError(errors, name)}
+				// helperText={getError(errors, name)}
+				// disabled={isLoading}
 				/>
 			)}
 		/>

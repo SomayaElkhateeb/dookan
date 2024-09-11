@@ -9,21 +9,21 @@ const MarketingTabs = () => {
 	const { tab } = useParams();
 
 	switch (tab) {
-		case 'apps':
-			return <Apps />;
+		// case 'apps':
+		// 	return <Apps />;
 		case 'discounts':
 			return <Discounts />;
 		case 'coupons':
 			return <Coupons />;
-		case 'campaigns':
-			return <Campaigns />;
+		// case 'campaigns':
+		// 	return <Campaigns />;
 		case 'cartRule':
 			return <CartRulePage />;
 		case 'catalogRule':
 			return <CatalogRulePage />;
 
 		default:
-			return <Apps />;
+			return <Discounts />;
 	}
 };
 
