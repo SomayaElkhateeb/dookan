@@ -1507,5 +1507,14 @@ export const arabic = {
 	'Code Prefix': 'بادئة الكود',
 	'Code Format': 'تنسيق الكود',
 	'Category Code': 'رمز الفئة',
+	'Option value':'',
+	'Add option to product':'',
+	'Option Name':'',
 
+	'All Quantity':'',
+	'Sku code':'',
+	'In Stock':'',
+
+	'Featured':'',
+	'Visible individually':'',
 } satisfies typeof english;

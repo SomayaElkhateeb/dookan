@@ -1525,13 +1525,6 @@ export const english = {
 	'Parent Subcategory':'Parent Subcategory',
 	'add options':'add options',
 
-	'Delete all attributes': 'Delete all attributes',
-	'Smart Living': 'Smart Living',
-	'add sub': 'add sub',
-	'Subcategory name': 'Subcategory name',
-	'Subcategory link (Slug)': 'Subcategory link (Slug)',
-	'Subcategory description': 'Subcategory description',
-	'Parent Subcategory': 'Parent Subcategory',
 	Alphanumeric: 'Alphanumeric',
 	Alphabetical: 'Alphabetical',
 	Numeric: 'Numeric',
@@ -1541,5 +1534,14 @@ export const english = {
 	'Code Prefix': 'Code Prefix',
 	'Code Format': 'Code Format',
 	'Category Code': 'Category Code',
+	'Option value':'Option value',
+	'Add option to product':'Add option to product',
+	'Option Name':'Option Name',
 
+	'All Quantity':'All Quantity',
+	'Sku code':'Sku code',
+	'In Stock':'In Stock',
+
+	'Featured':'Featured',
+	'Visible individually':'Visible individually',
 };

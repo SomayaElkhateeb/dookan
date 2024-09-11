@@ -30,7 +30,7 @@ export const sidebarLinks = [
 	{ id: nanoid(), path: '/customers', name: 'Customers', Icon: CustomersIcon },
 	{ id: nanoid(), path: '/analytics/overview', name: 'Analytics', Icon: AnalyticsIcon },
 	{ id: nanoid(), path: '/reviews', name: 'Reviews', Icon: ReviewsIcon },
-	// { id: nanoid(), path: '/pages', name: 'Pages', Icon: PagesIcon },
+	{ id: nanoid(), path: '/pages', name: 'Pages', Icon: PagesIcon },
 	{ id: nanoid(), path: '/marketing/apps', name: 'Marketing', Icon: AdsIcon },
 	{ id: nanoid(), path: '/apps/app_store', name: 'Apps', Icon: AppsIcon },
 	// { id: nanoid(), path: '/services', name: 'Services', Icon: ServicesIcon },
